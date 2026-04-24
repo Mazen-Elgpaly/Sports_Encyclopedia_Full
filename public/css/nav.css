@@ -17,6 +17,36 @@
   --nav-height: 66px;
 }
 
+.profilenav {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.profilenav img:hover {
+    box-shadow: 0 0px 24px 11px rgba(24, 119, 242, 0.6);
+  }
+
+
+.profilenav img {
+    transition: box-shadow 0.3s ease;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #1877f2; /* قللنا البوردر شوية */
+    object-fit: cover;
+}
+
+.status {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 12px;   /* متناسب مع 50px */
+    height: 12px;
+    background-color: #31a24c;
+    border: 2px solid white;
+    border-radius: 50%;
+}
 /* ── Override Turkstyle nav margin-top conflict ── */
 nav.nav1 {
   margin-top: 0 !important;

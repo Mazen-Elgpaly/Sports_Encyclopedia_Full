@@ -100,9 +100,13 @@
                 </a>
             <?php endif; ?>
             <!-- ONE profile button only -->
-            <a id="profileBtn" href="<?= BASE_URL ?>/profile" class="btn" style="gap:6px;">
-                <i class="bi bi-person-circle"></i>
-                <?= htmlspecialchars($_SESSION['user_name']) ?>
+            <a id="profileBtn" href="<?= BASE_URL ?>/profile" style="gap:6px;">
+                <!-- <i class="bi bi-person-circle"></i> -->
+                 <div class="profilenav">
+                    <img src="<?= ($_SESSION['avatar'] ?? null) ? FileUpload::url($_SESSION['avatar']) : null; ?>">
+                    <span class="status"></span>
+                </div>
+                    <!-- <?= htmlspecialchars($_SESSION['user_name']) ?> -->
             </a>
             <a id="logoutBtn" href="<?= BASE_URL ?>/logout" class="btn-outline">Logout</a>
         <?php else: ?>
