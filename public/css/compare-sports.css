@@ -1,0 +1,297 @@
+/* sports.css */
+:root {
+  --bg: #0b0c0d;
+  --card: #15181b;
+  --panel: #121416;
+  --muted: #9aa3a6;
+  --accent: #00dfff;
+  --accent-2: #00a3ff;
+  --accent-3: #ffd166;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: #e9f0f2
+}
+
+.site-header {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03)
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center
+}
+
+.logo-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, var(--accent), #00a3ff)
+}
+
+.container {
+  max-width: 1200px;
+  margin: 36px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px
+}
+
+/* hero */
+.compare-hero h1 {
+  font-size: 36px;
+  margin: 0;
+  font-weight: 800
+}
+
+.compare-hero p {
+  color: var(--muted);
+  margin-top: 6px
+}
+
+.compare-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 12px
+}
+
+.input-wrap input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: transparent;
+  color: #fff;
+  min-width: 320px
+}
+
+.add-s {
+  background: #222;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: var(--muted)
+}
+
+/* compare cards */
+.compare-cards {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start
+}
+
+.sport-card {
+  flex: 1;
+  background: var(--card);
+  padding: 18px;
+  border-radius: 12px
+}
+
+.circle-img {
+
+  aspect-ratio: 1 / 1;
+  width: 90px;
+  margin-bottom: 2rem;
+  background-color: var(--main-color, #000000);
+  mask: url('') center/contain no-repeat;
+  -webkit-mask: url('') center/contain no-repeat;
+
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  padding-bottom: 12px;
+  margin-bottom: 12px
+}
+
+.icon-blob {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--accent), #00a3ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000
+}
+
+.card-body .section {
+  color: var(--main-color);
+  margin: 12px 0 8px
+}
+
+.rules {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--muted)
+}
+
+.rules li {
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.02);
+  font-size: 14px
+}
+
+.rules .note {
+  background: linear-gradient(90deg, rgba(0, 223, 255, 0.06), rgba(255, 209, 102, 0.04));
+  padding: 10px;
+  border-radius: 8px;
+  color: #dff8ff;
+  margin: 8px 0
+}
+
+/* equipment */
+.equipment-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+  flex-wrap: wrap
+}
+
+.eq {
+  background: #0f1315;
+  padding: 18px;
+  border-radius: 10px;
+  min-width: 80px;
+  text-align: center;
+  color: var(--muted)
+}
+
+/* skills */
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0
+}
+
+.skill-name {
+  width: 140px;
+  color: var(--muted)
+}
+
+.skill-bar {
+  flex: 1;
+  background: #0e1213;
+  height: 12px;
+  border-radius: 8px;
+  overflow: hidden
+}
+
+.skill-bar .bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #00a3ff);
+  border-radius: 8px
+}
+
+/* footer */
+.site-footer {
+  padding: 30px 0;
+  text-align: center;
+  color: #7f8b8e;
+  border-top: 1px solid rgba(255, 255, 255, 0.02)
+}
+
+/* Animation for skills */
+.skill-bar .bar {
+  width: 0;
+  transition: width 1.2s ease-out;
+}
+
+.compare-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.compare-header select {
+  padding: 10px 14px;
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #fff;
+}
+
+.compare-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.skill-bar {
+  position: relative;
+  flex: 1;
+  background: #0e1213;
+  height: 12px;
+  border-radius: 8px;
+  overflow: visible;
+}
+
+.skill-bar .bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #00a3ff);
+  border-radius: 8px;
+  transition: width 0.8s ease-out;
+}
+
+.skill-bar .value {
+  position: absolute;
+  right: 6px;
+  top: -5px;
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+  transform: translateX(50%);
+}
+
+.chart-title {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--accent-3);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.chart canvas {
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.chart canvas.visible {
+  transform: translateY(0);
+}
+
+
+/* responsive */
+@media (max-width:900px) {
+  .compare-row {
+    flex-direction: column
+  }
+
+  .compare-cards {
+    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,819 @@
+Sports_Encyclopedia
+├── app
+│   ├── controllers
+│   │   ├── AdminController.php
+│   │   ├── AthletesController.php
+│   │   ├── AuthController.php
+│   │   ├── HomeController.php
+│   │   ├── PagesController.php
+│   │   ├── ProfileController.php
+│   │   ├── SportsController.php
+│   │   └── StatementsController.php
+│   ├── models
+│   │   ├── AthleteModel.php
+│   │   ├── ClubModel.php
+│   │   ├── ContactFeedbackModel.php
+│   │   ├── ContributionModel.php
+│   │   ├── DashboardModel.php
+│   │   ├── RecordModel.php
+│   │   ├── SportModel.php
+│   │   ├── StatementModel.php
+│   │   └── UserModel.php
+│   └── views
+│       ├── admin
+│       │   ├── athlete_form.php
+│       │   ├── club_form.php
+│       │   ├── contributions.php
+│       │   ├── index.php
+│       │   └── sport_form.php
+│       ├── athletes
+│       │   ├── champions.php
+│       │   ├── compare.php
+│       │   ├── index.php
+│       │   └── show.php
+│       ├── auth
+│       │   ├── login.php
+│       │   └── register.php
+│       ├── chat
+│       │   └── statements.php
+│       ├── dashboard
+│       │   └── statistics.php
+│       ├── home
+│       │   ├── index.php
+│       │   └── records.php
+│       ├── layouts
+│       │   ├── auth.php
+│       │   └── main.php
+│       ├── pages
+│       │   ├── 403.php
+│       │   ├── 404.php
+│       │   ├── about.php
+│       │   ├── contact.php
+│       │   ├── faq.php
+│       │   ├── feedback.php
+│       │   ├── otp.php
+│       │   ├── reset.php
+│       │   ├── resetpass.php
+│       │   ├── settings.php
+│       │   ├── tips.php
+│       │   └── _stub.php
+│       ├── profile
+│       │   ├── index.php
+│       │   └── settings.php
+│       └── sports
+│           ├── championships.php
+│           ├── clubs.php
+│           ├── compare.php
+│           ├── index.php
+│           └── show.php
+├── config
+│   ├── app.php
+│   └── database.php
+├── core
+│   ├── Autoloader.php
+│   ├── Controller.php
+│   ├── Database.php
+│   ├── FileUpload.php
+│   ├── Model.php
+│   └── Router.php
+├── public
+│   ├── .htaccess
+│   ├── css
+│   │   ├── app.css
+│   │   ├── compare-athletes.css
+│   │   ├── compare-sports.css
+│   │   ├── contactus.css
+│   │   ├── dashboard.css
+│   │   ├── egyptian-champions.css
+│   │   ├── faq.css
+│   │   ├── feedback.css
+│   │   ├── global_records.css
+│   │   ├── index.css
+│   │   ├── login.css
+│   │   ├── nav.css
+│   │   ├── players.css
+│   │   ├── settings.css
+│   │   ├── sports.css
+│   │   ├── sport_info.css
+│   │   ├── tips.css
+│   │   └── user_account.css
+│   ├── images
+│   │   ├── 0001-0032.webm
+│   │   ├── asian_hockey_championship.jpg
+│   │   ├── athletes
+│   │   │   ├── baseball
+│   │   │   │   ├── aaron_judge.png
+│   │   │   │   ├── aaron_judge_banner.png
+│   │   │   │   ├── anthony_rendon.png
+│   │   │   │   ├── anthony_rendon_banner.png
+│   │   │   │   ├── bryan_reynolds.png
+│   │   │   │   ├── bryan_reynolds_banner.png
+│   │   │   │   ├── bryce_harper.png
+│   │   │   │   ├── bryce_harper_banner.png
+│   │   │   │   ├── cal_raleigh.png
+│   │   │   │   ├── cal_raleigh_banner.png
+│   │   │   │   ├── freddie_freeman.png
+│   │   │   │   ├── freddie_freeman_banner.png
+│   │   │   │   ├── giancarlo_stanton.png
+│   │   │   │   ├── giancarlo_stanton_banner.png
+│   │   │   │   ├── jose_ramirez.png
+│   │   │   │   ├── jose_ramirez_banner.png
+│   │   │   │   ├── juan_soto.png
+│   │   │   │   ├── juan_soto_banner.png
+│   │   │   │   ├── ketel_marte.png
+│   │   │   │   ├── ketel_marte_banner.png
+│   │   │   │   ├── manny_machado.png
+│   │   │   │   ├── manny_machado_banner.png
+│   │   │   │   ├── matt_olson.png
+│   │   │   │   ├── matt_olson_banner.png
+│   │   │   │   ├── mookie_betts.png
+│   │   │   │   ├── mookie_betts_banner.png
+│   │   │   │   ├── nolan_arenado.png
+│   │   │   │   ├── nolan_arenado_banner.png
+│   │   │   │   ├── shohei_ohtani.png
+│   │   │   │   ├── shohei_ohtani_banner.png
+│   │   │   │   ├── trea_turner.png
+│   │   │   │   └── trea_turner_banner.png
+│   │   │   ├── basketball
+│   │   │   │   ├── booker.png
+│   │   │   │   ├── booker_banner.png
+│   │   │   │   ├── butler.png
+│   │   │   │   ├── butler_banner.png
+│   │   │   │   ├── curry.png
+│   │   │   │   ├── curry_banner.png
+│   │   │   │   ├── davis.png
+│   │   │   │   ├── davis_banner.png
+│   │   │   │   ├── doncic.png
+│   │   │   │   ├── doncic_banner.png
+│   │   │   │   ├── durant.png
+│   │   │   │   ├── durant_banner.png
+│   │   │   │   ├── embiid.png
+│   │   │   │   ├── embiid_banner.png
+│   │   │   │   ├── giannis.png
+│   │   │   │   ├── giannis_banner.png
+│   │   │   │   ├── harden.png
+│   │   │   │   ├── harden_banner.png
+│   │   │   │   ├── irving.png
+│   │   │   │   ├── irving_banner.png
+│   │   │   │   ├── jordan.png
+│   │   │   │   ├── jordan_banner.png
+│   │   │   │   ├── klay.png
+│   │   │   │   ├── klay_banner.png
+│   │   │   │   ├── lebron.png
+│   │   │   │   ├── lebron_banner.png
+│   │   │   │   ├── tatum.png
+│   │   │   │   ├── tatum_banner.png
+│   │   │   │   ├── westbrook.png
+│   │   │   │   └── westbrook_banner.png
+│   │   │   ├── bodybuilding
+│   │   │   │   ├── ahmad.png
+│   │   │   │   ├── ahmad_banner.png
+│   │   │   │   ├── arnold.png
+│   │   │   │   ├── arnold_banner.png
+│   │   │   │   ├── bigramy.png
+│   │   │   │   ├── bigramy_banner.png
+│   │   │   │   ├── brandon.png
+│   │   │   │   ├── brandon_banner.png
+│   │   │   │   ├── dexter.png
+│   │   │   │   ├── dexter_banner.png
+│   │   │   │   ├── dorian.png
+│   │   │   │   ├── dorian_banner.png
+│   │   │   │   ├── flex.png
+│   │   │   │   ├── flex_banner.png
+│   │   │   │   ├── franco.png
+│   │   │   │   ├── franco_banner.png
+│   │   │   │   ├── hadi.png
+│   │   │   │   ├── hadi_banner.png
+│   │   │   │   ├── jay.png
+│   │   │   │   ├── jay_banner.png
+│   │   │   │   ├── kevin.png
+│   │   │   │   ├── kevin_banner.png
+│   │   │   │   ├── kris_pomsted.png
+│   │   │   │   ├── kris_pomsted_banner.png
+│   │   │   │   ├── phil.png
+│   │   │   │   ├── phil_banner.png
+│   │   │   │   ├── ronnie.png
+│   │   │   │   ├── ronnie2.png
+│   │   │   │   ├── ronnie2_banner.png
+│   │   │   │   ├── ronnie_banner.png
+│   │   │   │   ├── shawn.png
+│   │   │   │   └── shawn_banner.png
+│   │   │   ├── boxing
+│   │   │   │   ├── ali.png
+│   │   │   │   ├── ali_banner.png
+│   │   │   │   ├── beterbiev.png
+│   │   │   │   ├── beterbiev_banner.png
+│   │   │   │   ├── canelo.png
+│   │   │   │   ├── canelo_banner.png
+│   │   │   │   ├── crawford.png
+│   │   │   │   ├── crawford_banner.png
+│   │   │   │   ├── davis.png
+│   │   │   │   ├── davis_banner.png
+│   │   │   │   ├── fury.png
+│   │   │   │   ├── fury_banner.png
+│   │   │   │   ├── garcia.png
+│   │   │   │   ├── garcia_banner.png
+│   │   │   │   ├── haney.png
+│   │   │   │   ├── haney_banner.png
+│   │   │   │   ├── inoue.png
+│   │   │   │   ├── inoue_banner.png
+│   │   │   │   ├── joshua.png
+│   │   │   │   ├── joshua_banner.png
+│   │   │   │   ├── loma.png
+│   │   │   │   ├── loma_banner.png
+│   │   │   │   ├── mayweather.png
+│   │   │   │   ├── mayweather_banner.png
+│   │   │   │   ├── tyson.png
+│   │   │   │   ├── tyson_banner.png
+│   │   │   │   ├── usyk.png
+│   │   │   │   ├── usyk_banner.png
+│   │   │   │   ├── wilder.png
+│   │   │   │   └── wilder_banner.png
+│   │   │   ├── cycling
+│   │   │   │   ├── alaphilippe.png
+│   │   │   │   ├── alaphilippe_banner.png
+│   │   │   │   ├── avendish_banner.png
+│   │   │   │   ├── bernal.png
+│   │   │   │   ├── bernal_banner.png
+│   │   │   │   ├── carapaz.png
+│   │   │   │   ├── carapaz_banner.png
+│   │   │   │   ├── cavendish.png
+│   │   │   │   ├── cavendish_banner.png
+│   │   │   │   ├── girmay.png
+│   │   │   │   ├── girmay_banner.png
+│   │   │   │   ├── pogacar.png
+│   │   │   │   ├── pogacar_banner.png
+│   │   │   │   ├── primoz-roglic-18655.webp
+│   │   │   │   ├── roglic_banner.png
+│   │   │   │   ├── thomas.png
+│   │   │   │   ├── thomas_banner.png
+│   │   │   │   ├── van_aert.png
+│   │   │   │   ├── van_aert_banner.png
+│   │   │   │   ├── vdp.png
+│   │   │   │   ├── vdp_banner.png
+│   │   │   │   ├── yates_adam.png
+│   │   │   │   ├── yates_adam_banner.png
+│   │   │   │   ├── yates_simon.png
+│   │   │   │   └── yates_simon_banner.png
+│   │   │   ├── egyptian-champions
+│   │   │   │   ├── ahmed_afifi.jpg
+│   │   │   │   ├── ahmed_amir.jpg
+│   │   │   │   ├── ahmed_elgendy.jpg
+│   │   │   │   ├── ahmed_el_sheikh.jpg
+│   │   │   │   ├── ahmed_hegazi.jpg
+│   │   │   │   ├── amr_el_gendy.jpg
+│   │   │   │   ├── assem_marei.jpg
+│   │   │   │   ├── big_ramy.jpg
+│   │   │   │   ├── ebtissam_zayed.jpg
+│   │   │   │   ├── farida_osman.jpg
+│   │   │   │   ├── hany_rambod.jpg
+│   │   │   │   ├── hassan_talal.jpg
+│   │   │   │   ├── karim_maamoun.jpg
+│   │   │   │   ├── mahmoud_trezeguet.jpg
+│   │   │   │   ├── marwan_elamrawy.jpg
+│   │   │   │   ├── mayar_sherif.jpg
+│   │   │   │   ├── mohamed_elneny.jpg
+│   │   │   │   ├── mohamed_el_sayed.jpg
+│   │   │   │   ├── mohamed_gamal.jpg
+│   │   │   │   ├── mohamed_makkawy.jpg
+│   │   │   │   ├── mohamed_safwat.jpg
+│   │   │   │   ├── mohamed_salah.jpg
+│   │   │   │   ├── mohamed_shaaban.jpg
+│   │   │   │   ├── mostafa_mohamed.jpg
+│   │   │   │   ├── nada_meawad.jpg
+│   │   │   │   ├── omar_hassan_volleyball.jpg
+│   │   │   │   ├── omar_marmoush.jpg
+│   │   │   │   ├── sandra_samir.jpg
+│   │   │   │   ├── sara_samir.jpg
+│   │   │   │   ├── shaimaa_haridy.jpg
+│   │   │   │   ├── soraia_deghady.jpg
+│   │   │   │   ├── yomna_ayyad.jpg
+│   │   │   │   ├── yousry_hafez.jpg
+│   │   │   │   ├── youssef_elkamash.jpg
+│   │   │   │   └── youssef_hossam.jpg
+│   │   │   ├── f1
+│   │   │   │   ├── alonso.png
+│   │   │   │   ├── alonso_banner.png
+│   │   │   │   ├── button.png
+│   │   │   │   ├── button_banner.png
+│   │   │   │   ├── fangio.png
+│   │   │   │   ├── fangio_banner.png
+│   │   │   │   ├── hamilton.png
+│   │   │   │   ├── hamilton_banner.png
+│   │   │   │   ├── hunt.png
+│   │   │   │   ├── hunt_banner.png
+│   │   │   │   ├── lando_norris.png
+│   │   │   │   ├── lando_norris_banner.png
+│   │   │   │   ├── lauda.png
+│   │   │   │   ├── lauda_banner.png
+│   │   │   │   ├── leclerc.png
+│   │   │   │   ├── leclerc_banner.png
+│   │   │   │   ├── moss.png
+│   │   │   │   ├── moss_banner.png
+│   │   │   │   ├── piguet.png
+│   │   │   │   ├── piguet_banner.png
+│   │   │   │   ├── prost.png
+│   │   │   │   ├── prost_banner.png
+│   │   │   │   ├── raikkonen.png
+│   │   │   │   ├── raikkonen_banner.png
+│   │   │   │   ├── schumacher.png
+│   │   │   │   ├── schumacher_banner.png
+│   │   │   │   ├── senna.png
+│   │   │   │   ├── senna_banner.png
+│   │   │   │   ├── verstappen.png
+│   │   │   │   ├── verstappen_banner.png
+│   │   │   │   ├── vettel.png
+│   │   │   │   ├── vettel_banner.png
+│   │   │   │   ├── villeneuve.png
+│   │   │   │   └── villeneuve_banner.png
+│   │   │   ├── football
+│   │   │   │   ├── bernardo.png
+│   │   │   │   ├── bernardo_banner.png
+│   │   │   │   ├── depay.png
+│   │   │   │   ├── depay_banner.png
+│   │   │   │   ├── garnacho.png
+│   │   │   │   ├── garnacho_banner.png
+│   │   │   │   ├── haaland.png
+│   │   │   │   ├── haaland_banner.png
+│   │   │   │   ├── hegazi.png
+│   │   │   │   ├── hegazi_banner.png
+│   │   │   │   ├── ibrahimovic.png
+│   │   │   │   ├── ibrahimovic_banner.png
+│   │   │   │   ├── kane.png
+│   │   │   │   ├── kane_banner.png
+│   │   │   │   ├── kdb.png
+│   │   │   │   ├── kdb_banner.png
+│   │   │   │   ├── kimmich.png
+│   │   │   │   ├── kimmich_banner.png
+│   │   │   │   ├── maradona.png
+│   │   │   │   ├── maradona_banner.png
+│   │   │   │   ├── mbappe.png
+│   │   │   │   ├── mbappe_banner.png
+│   │   │   │   ├── messi.png
+│   │   │   │   ├── messi_banner.png
+│   │   │   │   ├── modric.png
+│   │   │   │   ├── modric_banner.png
+│   │   │   │   ├── neymar.png
+│   │   │   │   ├── neymar_banner.png
+│   │   │   │   ├── omar_marmoush.png
+│   │   │   │   ├── omar_marmoush_banner.png
+│   │   │   │   ├── pele.png
+│   │   │   │   ├── pele_banner.png
+│   │   │   │   ├── ronaldinho.png
+│   │   │   │   ├── ronaldinho_banner.png
+│   │   │   │   ├── ronaldo.png
+│   │   │   │   ├── ronaldo_banner.png
+│   │   │   │   ├── salah.png
+│   │   │   │   ├── salah_banner.png
+│   │   │   │   ├── son.png
+│   │   │   │   ├── son_banner.png
+│   │   │   │   ├── sterling.png
+│   │   │   │   ├── sterling_banner.png
+│   │   │   │   ├── yamal.png
+│   │   │   │   └── yamal_banner.png
+│   │   │   ├── golf
+│   │   │   │   ├── brooks_koepka.png
+│   │   │   │   ├── brooks_koepka_banner.png
+│   │   │   │   ├── bryson_dechambeau.png
+│   │   │   │   ├── bryson_dechambeau_banner.png
+│   │   │   │   ├── collin_morikawa.png
+│   │   │   │   ├── collin_morikawa_banner.png
+│   │   │   │   ├── hideki_matsuyama.png
+│   │   │   │   ├── hideki_matsuyama_banner.png
+│   │   │   │   ├── jon_rahm.png
+│   │   │   │   ├── jon_rahm_banner.png
+│   │   │   │   ├── jordan_spieth.png
+│   │   │   │   ├── jordan_spieth_banner.png
+│   │   │   │   ├── justin_thomas.png
+│   │   │   │   ├── justin_thomas_banner.png
+│   │   │   │   ├── patrick_cantlay.png
+│   │   │   │   ├── patrick_cantlay_banner.png
+│   │   │   │   ├── rory_mcilroy.png
+│   │   │   │   ├── rory_mcilroy_banner.png
+│   │   │   │   ├── scottie_scheffler.png
+│   │   │   │   ├── scottie_scheffler_banner.png
+│   │   │   │   ├── shane_lowry.png
+│   │   │   │   ├── shane_lowry_banner.png
+│   │   │   │   ├── tiger_woods.png
+│   │   │   │   ├── tiger_woods_banner.png
+│   │   │   │   ├── viktor_hovland.png
+│   │   │   │   ├── viktor_hovland_banner.png
+│   │   │   │   ├── xander_schauffele.png
+│   │   │   │   └── xander_schauffele_banner.png
+│   │   │   ├── hockey
+│   │   │   │   ├── crosby.png
+│   │   │   │   ├── crosby_banner.png
+│   │   │   │   ├── draisaitl.png
+│   │   │   │   ├── draisaitl_banner.png
+│   │   │   │   ├── fox.png
+│   │   │   │   ├── fox_banner.png
+│   │   │   │   ├── hedman.png
+│   │   │   │   ├── hedman_banner.png
+│   │   │   │   ├── hughes_jack.png
+│   │   │   │   ├── hughes_jack_banner.png
+│   │   │   │   ├── kaprizov.png
+│   │   │   │   ├── kaprizov_banner.png
+│   │   │   │   ├── makar.png
+│   │   │   │   ├── makar_banner.png
+│   │   │   │   ├── marchand.png
+│   │   │   │   ├── marchand_banner.png
+│   │   │   │   ├── matthews.png
+│   │   │   │   ├── matthews_banner.png
+│   │   │   │   ├── mcdavid.png
+│   │   │   │   ├── mcdavid_banner.png
+│   │   │   │   ├── ovechkin.png
+│   │   │   │   ├── ovechkin_banner.png
+│   │   │   │   ├── pastrnak.png
+│   │   │   │   ├── pastrnak_banner.png
+│   │   │   │   ├── pettersson.png
+│   │   │   │   ├── pettersson_banner.png
+│   │   │   │   ├── point.png
+│   │   │   │   ├── point_banner.png
+│   │   │   │   ├── stamkos.png
+│   │   │   │   └── stamkos_banner.png
+│   │   │   ├── mma
+│   │   │   │   ├── conor.png
+│   │   │   │   ├── conor_banner.png
+│   │   │   │   ├── edwards.png
+│   │   │   │   ├── edwards_banner.png
+│   │   │   │   ├── gsp.png
+│   │   │   │   ├── gsp_banner.png
+│   │   │   │   ├── holloway.png
+│   │   │   │   ├── holloway_banner.png
+│   │   │   │   ├── islam.png
+│   │   │   │   ├── islam_banner.png
+│   │   │   │   ├── jon_jones.png
+│   │   │   │   ├── jon_jones_banner.png
+│   │   │   │   ├── khabib.png
+│   │   │   │   ├── khabib_banner.png
+│   │   │   │   ├── ngannou.png
+│   │   │   │   ├── ngannou_banner.png
+│   │   │   │   ├── oliveira.png
+│   │   │   │   ├── oliveira_banner.png
+│   │   │   │   ├── omalley.png
+│   │   │   │   ├── omalley_banner.png
+│   │   │   │   ├── pereira.png
+│   │   │   │   ├── pereira_banner.png
+│   │   │   │   ├── silva.png
+│   │   │   │   ├── silva_banner.png
+│   │   │   │   ├── sterling.png
+│   │   │   │   ├── sterling_banner.png
+│   │   │   │   ├── volkanovski.png
+│   │   │   │   └── volkanovski_banner.png
+│   │   │   ├── running
+│   │   │   │   ├── bolt.png
+│   │   │   │   ├── bolt_banner.png
+│   │   │   │   ├── cheptegei.png
+│   │   │   │   ├── cheptegei_banner.png
+│   │   │   │   ├── duplantis.png
+│   │   │   │   ├── duplantis_banner.png
+│   │   │   │   ├── james.png
+│   │   │   │   ├── james_banner.png
+│   │   │   │   ├── kipchoge.png
+│   │   │   │   ├── kipchoge_banner.png
+│   │   │   │   ├── rutherford.png
+│   │   │   │   ├── rutherford_banner.png
+│   │   │   │   ├── taylor.png
+│   │   │   │   ├── taylor_banner.png
+│   │   │   │   ├── van_niekerk.png
+│   │   │   │   ├── van_niekerk_banner.png
+│   │   │   │   ├── warholm.png
+│   │   │   │   └── warholm_banner.png
+│   │   │   ├── swimming
+│   │   │   │   ├── dressel.png
+│   │   │   │   ├── dressel_banner.png
+│   │   │   │   ├── hosszu.png
+│   │   │   │   ├── hosszu_banner.png
+│   │   │   │   ├── king.png
+│   │   │   │   ├── king_banner.png
+│   │   │   │   ├── ledecky.png
+│   │   │   │   ├── ledecky_banner.png
+│   │   │   │   ├── mcintosh.png
+│   │   │   │   ├── mcintosh_banner.png
+│   │   │   │   ├── milak.png
+│   │   │   │   ├── milak_banner.png
+│   │   │   │   ├── murphy.png
+│   │   │   │   ├── murphy_banner.png
+│   │   │   │   ├── peaty.png
+│   │   │   │   ├── peaty_banner.png
+│   │   │   │   ├── phelps.png
+│   │   │   │   ├── phelps_banner.png
+│   │   │   │   ├── sjostrom.png
+│   │   │   │   ├── sjostrom_banner.png
+│   │   │   │   ├── titmus.png
+│   │   │   │   └── titmus_banner.png
+│   │   │   ├── tennis
+│   │   │   │   ├── alexander_zverev.png
+│   │   │   │   ├── alexander_zverev_banner.png
+│   │   │   │   ├── andy_murray.png
+│   │   │   │   ├── andy_murray_banner.png
+│   │   │   │   ├── carlos_alcaraz.png
+│   │   │   │   ├── carlos_alcaraz_banner.png
+│   │   │   │   ├── daniil_medvedev.png
+│   │   │   │   ├── daniil_medvedev_banner.png
+│   │   │   │   ├── dominic_thiem.png
+│   │   │   │   ├── dominic_thiem_banner.png
+│   │   │   │   ├── felix_aliassime.png
+│   │   │   │   ├── felix_aliassime_banner.png
+│   │   │   │   ├── gael_monfils.png
+│   │   │   │   ├── gael_monfils_banner.png
+│   │   │   │   ├── holger_rune.png
+│   │   │   │   ├── holger_rune_banner.png
+│   │   │   │   ├── jannik_sinner.png
+│   │   │   │   ├── jannik_sinner_banner.png
+│   │   │   │   ├── nick_kyrgios.png
+│   │   │   │   ├── nick_kyrgios_banner.png
+│   │   │   │   ├── novak_djokovic.png
+│   │   │   │   ├── novak_djokovic_banner.png
+│   │   │   │   ├── rafael_nadal.png
+│   │   │   │   ├── rafael_nadal_banner.png
+│   │   │   │   ├── roger_federer.png
+│   │   │   │   ├── roger_federer_banner.png
+│   │   │   │   ├── stan_wawrinka.png
+│   │   │   │   ├── stan_wawrinka_banner.png
+│   │   │   │   ├── stefanos_tsitsipas.png
+│   │   │   │   └── stefanos_tsitsipas_banner.png
+│   │   │   ├── volleyball
+│   │   │   │   ├── bartosz_kurek.png
+│   │   │   │   ├── bartosz_kurek_banner.png
+│   │   │   │   ├── earvin_ngapeth.png
+│   │   │   │   ├── earvin_ngapeth_banner.png
+│   │   │   │   ├── ivan_zaytsev.png
+│   │   │   │   ├── ivan_zaytsev_banner.png
+│   │   │   │   ├── lucarelli_souza.png
+│   │   │   │   ├── lucarelli_souza_banner.png
+│   │   │   │   ├── masahiro_yanagida.png
+│   │   │   │   ├── masahiro_yanagida_banner.png
+│   │   │   │   ├── matt_anderson.png
+│   │   │   │   ├── matt_anderson_banner.png
+│   │   │   │   ├── max_holt.png
+│   │   │   │   ├── max_holt_banner.png
+│   │   │   │   ├── micah_christenson.png
+│   │   │   │   ├── micah_christenson_banner.png
+│   │   │   │   ├── ran_takahashi.png
+│   │   │   │   ├── ran_takahashi_banner.png
+│   │   │   │   ├── simone_gianelli.png
+│   │   │   │   ├── simone_gianelli_banner.png
+│   │   │   │   ├── torey_defalco.png
+│   │   │   │   ├── torey_defalco_banner.png
+│   │   │   │   ├── wilfredo_leon.png
+│   │   │   │   ├── wilfredo_leon_banner.png
+│   │   │   │   ├── yoandy_leal.png
+│   │   │   │   ├── yoandy_leal_banner.png
+│   │   │   │   ├── yuki_ishikawa.png
+│   │   │   │   └── yuki_ishikawa_banner.png
+│   │   │   └── weightlifting
+│   │   │       ├── chen_lijun.png
+│   │   │       ├── chen_lijun_banner.png
+│   │   │       ├── djuraev.png
+│   │   │       ├── djuraev_banner.png
+│   │   │       ├── farris.png
+│   │   │       ├── farris_banner.png
+│   │   │       ├── ilyin.png
+│   │   │       ├── ilyin_banner.png
+│   │   │       ├── klokov.png
+│   │   │       ├── klokov_banner.png
+│   │   │       ├── lasha.png
+│   │   │       ├── lasha_banner.png
+│   │   │       ├── li_fabing.png
+│   │   │       ├── li_fabing_banner.png
+│   │   │       ├── lyu_xiaojun.png
+│   │   │       ├── lyu_xiaojun_banner.png
+│   │   │       ├── meso.png
+│   │   │       ├── meso_banner.png
+│   │   │       ├── mirabai_chanu.png
+│   │   │       ├── mirabai_chanu_banner.png
+│   │   │       ├── moradi.png
+│   │   │       ├── moradi_banner.png
+│   │   │       ├── nasar.png
+│   │   │       ├── nasar_banner.png
+│   │   │       ├── rahimov.png
+│   │   │       ├── rahimov_banner.png
+│   │   │       ├── rostami.png
+│   │   │       ├── rostami_banner.png
+│   │   │       ├── sara_samir.png
+│   │   │       ├── sara_samir_banner.png
+│   │   │       ├── shi_zhiyong.png
+│   │   │       ├── shi_zhiyong_banner.png
+│   │   │       ├── tian_tao.png
+│   │   │       └── tian_tao_banner.png
+│   │   ├── australian_open.jpg
+│   │   ├── baseball-front.jpg
+│   │   ├── baseball-gallery1.png
+│   │   ├── baseball-gallery2.png
+│   │   ├── baseball-gallery3.png
+│   │   ├── baseball-header.png
+│   │   ├── basketball-front.jpg
+│   │   ├── basketball-header.png
+│   │   ├── basketball-header2111.png
+│   │   ├── bellator_mma.jpg
+│   │   ├── berlin_marathon.jpg
+│   │   ├── bodybuilding-front.jpg
+│   │   ├── bodybuilding-header.png
+│   │   ├── bodybuilding1.png
+│   │   ├── bodybuilding2.png
+│   │   ├── bodybuilding3.png
+│   │   ├── boston_marathon.jpg
+│   │   ├── boxing-front.jpg
+│   │   ├── boxing-header.png
+│   │   ├── boxing1.png
+│   │   ├── boxing2.png
+│   │   ├── boxing3.png
+│   │   ├── caribbean_series.jpg
+│   │   ├── champions_hockey_league.jpg
+│   │   ├── clubs
+│   │   │   ├── aka.png
+│   │   │   ├── all_england.png
+│   │   │   ├── american_top_team.png
+│   │   │   ├── argentina_hockey.png
+│   │   │   ├── arnold_festival.png
+│   │   │   ├── augusta_national.png
+│   │   │   ├── australian_hockey.png
+│   │   │   ├── australian_open.png
+│   │   │   ├── bahrain_victorious.png
+│   │   │   ├── barcelona.png
+│   │   │   ├── barcelona_bb.png
+│   │   │   ├── bayern_munich.png
+│   │   │   ├── bora_hansgrohe.png
+│   │   │   ├── bowerman_track.png
+│   │   │   ├── british_swimming.png
+│   │   │   ├── bulls.png
+│   │   │   ├── celtics.png
+│   │   │   ├── chinese_swimming.png
+│   │   │   ├── chinese_weightlifting.png
+│   │   │   ├── england_hockey.png
+│   │   │   ├── german_hockey.png
+│   │   │   ├── german_swimming.png
+│   │   │   ├── gleasons.png
+│   │   │   ├── global_sports.png
+│   │   │   ├── heat.png
+│   │   │   ├── ifbb_pro.png
+│   │   │   ├── ineos_grenadiers.png
+│   │   │   ├── jackson_wink.png
+│   │   │   ├── jumbo_visma.png
+│   │   │   ├── juventus.png
+│   │   │   ├── kronk_gym.png
+│   │   │   ├── lakers.png
+│   │   │   ├── liverpool.png
+│   │   │   ├── manchester_united.png
+│   │   │   ├── matchroom.png
+│   │   │   ├── mayweather_boxing.png
+│   │   │   ├── metroflex.png
+│   │   │   ├── movistar.png
+│   │   │   ├── mtk.png
+│   │   │   ├── nadal_academy.png
+│   │   │   ├── netherlands_hockey.png
+│   │   │   ├── nn_running.png
+│   │   │   ├── nova_uniao.png
+│   │   │   ├── olympia.png
+│   │   │   ├── pebble_beach.png
+│   │   │   ├── pine_valley.png
+│   │   │   ├── psg.png
+│   │   │   ├── quickstep.png
+│   │   │   ├── real_madrid.png
+│   │   │   ├── roland_garros.png
+│   │   │   ├── royal_melbourne.png
+│   │   │   ├── spurs.png
+│   │   │   ├── team_kenya.png
+│   │   │   ├── top_rank.png
+│   │   │   ├── turkish_weightlifting.png
+│   │   │   ├── uae_team.png
+│   │   │   ├── ufc_institute.png
+│   │   │   ├── University_nationals.png
+│   │   │   ├── usa_swimming.png
+│   │   │   ├── usa_weightlifting.png
+│   │   │   ├── usta_center.png
+│   │   │   ├── warriors.png
+│   │   │   └── wild_card.png
+│   │   ├── copa_america.jpg
+│   │   ├── cycling-front.jpg
+│   │   ├── cycling-header.png
+│   │   ├── cycling1.png
+│   │   ├── cycling2.png
+│   │   ├── cycling3.png
+│   │   ├── euroleague.jpg
+│   │   ├── european_swimming.jpg
+│   │   ├── f1-front.jpg
+│   │   ├── f1_1.png
+│   │   ├── f1_2.png
+│   │   ├── f1_3.png
+│   │   ├── fiba_worldcup.jpg
+│   │   ├── fivb_world_championship.jpg
+│   │   ├── football-front.jpg
+│   │   ├── football-header.png
+│   │   ├── football1.png
+│   │   ├── football2.png
+│   │   ├── football3.png
+│   │   ├── football_worldcup.jpg
+│   │   ├── formula1-header.png
+│   │   ├── french_open.jpg
+│   │   ├── gallery1.png
+│   │   ├── gallery2.png
+│   │   ├── gallery3.png
+│   │   ├── giro_d_italia.jpg
+│   │   ├── Globe americas.png
+│   │   ├── globe-americas.svg
+│   │   ├── golf-front.jpg
+│   │   ├── golf-header.png
+│   │   ├── golf1.png
+│   │   ├── golf2.png
+│   │   ├── golf3.png
+│   │   ├── hockey-front.jpg
+│   │   ├── hockey-header.png
+│   │   ├── hockey1.png
+│   │   ├── hockey2.png
+│   │   ├── hockey3.png
+│   │   ├── ibf_world_title.jpg
+│   │   ├── japan_series.jpg
+│   │   ├── logos
+│   │   │   ├── baseball-back.png
+│   │   │   ├── basketball-back.png
+│   │   │   ├── bodybuilding-back.png
+│   │   │   ├── boxing-back.png
+│   │   │   ├── cycling-back.png
+│   │   │   ├── f1-back.png
+│   │   │   ├── football-back.png
+│   │   │   ├── golf-back.png
+│   │   │   ├── hockey-back.png
+│   │   │   ├── mma-back.png
+│   │   │   ├── running-back.png
+│   │   │   ├── swimming-back.png
+│   │   │   ├── tennis-back.png
+│   │   │   ├── volleyball-back.png
+│   │   │   ├── weightlifting-back.png
+│   │   │   └── wrestling-back.png
+│   │   ├── london_marathon.jpg
+│   │   ├── main_page.jpg
+│   │   ├── manavatar (1).png
+│   │   ├── manavatar (2).png
+│   │   ├── manavatar (3).png
+│   │   ├── mlb_worldseries.jpg
+│   │   ├── mma-front.jpg
+│   │   ├── mma-header.png
+│   │   ├── mma1.png
+│   │   ├── mma2.png
+│   │   ├── mma3.png
+│   │   ├── nba_finals.jpg
+│   │   ├── ncaa_championship.jpg
+│   │   ├── ny_marathon.jpg
+│   │   ├── olympics_swimming.jpg
+│   │   ├── open_championship.jpg
+│   │   ├── pan_pacific.jpg
+│   │   ├── pfl_championship.jpg
+│   │   ├── pga_championship.jpg
+│   │   ├── rizin_ff.jpg
+│   │   ├── running-front.jpg
+│   │   ├── running-header.png
+│   │   ├── running1.png
+│   │   ├── running2.png
+│   │   ├── running3.png
+│   │   ├── stanley_cup.jpg
+│   │   ├── swimming-front.jpg
+│   │   ├── swimming-header.png
+│   │   ├── swimming1.png
+│   │   ├── swimming2.png
+│   │   ├── swimming3.png
+│   │   ├── tennis-front.jpg
+│   │   ├── tennis-header.png
+│   │   ├── tennis1.png
+│   │   ├── tennis2.png
+│   │   ├── tennis3.png
+│   │   ├── the_masters.jpg
+│   │   ├── tour_de_france.jpg
+│   │   ├── uci_world_championships.jpg
+│   │   ├── UEFA.jpg
+│   │   ├── uefa_champions_league.jpg
+│   │   ├── ufc_championship.jpg
+│   │   ├── us_open.jpg
+│   │   ├── us_open_golf.jpg
+│   │   ├── volleyball-front.jpg
+│   │   ├── volleyball-header.png
+│   │   ├── volleyball1.png
+│   │   ├── volleyball2.png
+│   │   ├── volleyball3.png
+│   │   ├── wba_championship.jpg
+│   │   ├── wbc_world_title.jpg
+│   │   ├── wbo_championship.jpg
+│   │   ├── weightlifting-front.jpg
+│   │   ├── weightlifting-header.png
+│   │   ├── weightlifting1.png
+│   │   ├── weightlifting2.png
+│   │   ├── weightlifting3.png
+│   │   ├── wimbledon.jpg
+│   │   ├── womanavatar (1).png
+│   │   ├── womanavatar (2).png
+│   │   ├── womanavatar (3).png
+│   │   └── world_hockey_championship.jpg
+│   ├── index.php
+│   ├── js
+│   │   ├── app-new.js
+│   │   ├── password.js
+│   │   └── settings-loader.js
+│   └── uploads
+│       ├── avatars
+│       ├── chat
+│       └── contributions
+├── schema.sql
+├── Sports_Encyclopedia_chen_notation.png
+├── Sports_Encyclopedia_ERD_crossfoot.png
+└── Sports_Encyclopedia_ERD_crossfoot_and_chen_notation.drawio

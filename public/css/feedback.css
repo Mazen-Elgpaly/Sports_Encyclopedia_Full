@@ -1,0 +1,182 @@
+/* === ROOT COLORS & FONTS === */
+:root {
+    --primary: #0da6f2;
+    --background-dark: #101c22;
+    --input-bg: #1e1e1e;
+    --text-light: #ffffff;
+    --text-muted: #9cb0ba;
+    --radius-lg: 0.5rem;
+    --shadow-glow: 0 0 15px 2px rgba(13, 166, 242, 0.4);
+  }
+  
+  body {
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    background: var(--background-dark);
+    color: var(--text-light);
+  }
+  
+  .font-display {
+    font-family: "Space Grotesk", sans-serif;
+  }
+  
+  /* === PAGE STRUCTURE === */
+  .page-root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .layout-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .main {
+    width: 100%;
+    max-width: 768px;
+    padding: 24px;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  /* === INTRO TEXT === */
+  .title {
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: 900;
+    margin: 0;
+  }
+  
+  .subtitle {
+    text-align: center;
+    margin-top: 8px;
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+  
+  /* === FORM === */
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .row-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  @media (min-width: 768px) {
+    .row-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .field {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .label {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  
+  /* === INPUTS === */
+  .input,
+  .textarea {
+    background: var(--input-bg);
+    border: none;
+    color: var(--text-light);
+    padding: 16px;
+    border-radius: var(--radius-lg);
+    font-size: 1rem;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .input::placeholder,
+  .textarea::placeholder {
+    color: var(--text-muted);
+  }
+  
+  .input:focus,
+  .textarea:focus {
+    outline: none;
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .textarea {
+    min-height: 140px;
+    resize: none;
+  }
+  
+  /* === STARS === */
+  .stars {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 32px;
+  }
+  
+  .star {
+    cursor: pointer;
+    transition: color 0.25s;
+  }
+  
+  .star:hover {
+    color: var(--primary);
+  }
+  
+  /* === BUTTON === */
+  .submit-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 16px;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background: #0da6f2d0;
+  }
+  
+  .submit-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(13, 166, 242, 0.4);
+  }
+  
+  /* === MESSAGES === */
+  .message {
+    padding: 16px;
+    text-align: center;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+  }
+  
+  .success {
+    background: rgba(34, 197, 94, 0.2);
+    color: rgb(74, 222, 128);
+  }
+  
+  .error {
+    background: rgba(239, 68, 68, 0.2);
+    color: rgb(248, 113, 113);
+  }
+  
+  .hidden {
+    display: none;
+  }
+  

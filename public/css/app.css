@@ -1,0 +1,78 @@
+/* ============================================================
+   SPORTS ENCYCLOPEDIA — app.css
+   Additional styles for new features.
+   Loaded AFTER nav.css + page-specific CSS.
+   ============================================================ */
+
+/* ── Quick nav links (home page) ────────────────────────────── */
+.quick-nav-link {
+    display: flex; align-items: center; justify-content: center;
+    padding: 1rem; text-align: center; text-decoration: none;
+    background: #15181b; border: 1px solid #283339;
+    border-radius: 12px; font-size: .9rem; color: #9aa3a6;
+    transition: all .2s ease;
+}
+.quick-nav-link:hover {
+    background: #1f2327; color: #e8eef0;
+    border-color: #0da6f2; transform: translateY(-2px);
+}
+
+/* ── Statements / Chat ──────────────────────────────────────── */
+.stmt-card { transition: border-color .2s ease; }
+.stmt-card:hover { border-color: #3f526b !important; }
+.react-btn:hover {
+    background: rgba(13,166,242,.2) !important;
+    border-color: #0da6f2 !important;
+    transform: scale(1.05);
+}
+
+/* ── Ranking table row styles ────────────────────────────────── */
+.rank-table tbody tr.rank-1 td { font-size:18px; font-weight:800; color:#ffd700; }
+.rank-table tbody tr.rank-2 td { font-weight:700; color:#cfd8dc; }
+.rank-table tbody tr.rank-3 td { font-weight:700; color:#cd7f32; }
+.rank-table tbody tr.rank-normal td { color:#ddd; }
+.rank-table tbody tr { transition: transform .2s ease, background .2s ease; }
+.rank-table tbody tr:hover { background:rgba(255,255,255,.03); transform:translateX(4px); }
+
+/* ── Admin form inputs ───────────────────────────────────────── */
+.adm-label  { display:block; font-size:.875rem; color:#9aa3a6; margin-bottom:.35rem; }
+.adm-input  { width:100%; background:#0b0e13; color:#fff; border:1px solid #283339; border-radius:10px; padding:11px 13px; outline:none; font-size:.9rem; font-family:inherit; }
+.adm-input:focus { border-color:#0da6f2; }
+.adm-file   { color:#9aa3a6; font-size:.875rem; }
+
+/* ── Scrollbar ───────────────────────────────────────────────── */
+::-webkit-scrollbar { width:6px; height:6px; }
+::-webkit-scrollbar-track { background:#0b0e13; }
+::-webkit-scrollbar-thumb { background:#283339; border-radius:3px; }
+::-webkit-scrollbar-thumb:hover { background:#3f526b; }
+
+/* ── body/main ensure footer sticks to bottom ───────────────── */
+body  { display:flex; flex-direction:column; min-height:100vh; margin: 0;}
+body.dark {
+        background-color: #0b0e13;
+}
+main  { flex:1; }
+
+/* ── Footer sub-list open state ─────────────────────────────── */
+.footer-sublist.open { max-height: 500px; }
+
+/* ── Light mode overrides ────────────────────────────────────── */
+body.light {
+    --main-color: #0284c7;
+    background-color: #f0f4f8 !important;
+    color: #1a1a2e !important;
+}
+body.light .nav1 {
+    background: rgba(240,244,248,0.95) !important;
+    box-shadow: 0 4px 18px rgba(0,0,0,.15) !important;
+}
+body.light .navul > li > a { color: #334155 !important; }
+body.light .navul > li > a.active { color: #fff !important; }
+body.light .nav-right .btn-outline { border-color: rgba(0,0,0,.15) !important; color: #334155 !important; }
+body.light .brand { color: #0284c7 !important; }
+body.light .sidebar1 { background: rgba(240,244,248,0.98) !important; }
+body.light .sidebar-list a { color: #334155 !important; }
+body.light main { background: #f0f4f8 !important; }
+body.light .footer { background: #e2e8f0 !important; color: #334155 !important; }
+body.light .footer a { color: #0284c7 !important; }
+body.light .card, body.light .stat-card { background: #fff !important; border-color: #e2e8f0 !important; color: #1a1a2e !important; }

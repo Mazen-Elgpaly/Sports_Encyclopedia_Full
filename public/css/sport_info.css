@@ -1,0 +1,267 @@
+/* التنسيق العام للصفحة */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #121212;
+  color: #fff;
+  /* padding: 20px; */
+  animation: fadeIn 1s ease-in-out;
+
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* التنسيق للـ hero */
+.hero {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+}
+
+.hero h1 {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+/* التنسيق للـ tabs */
+.tabs {
+  display: flex;
+  gap: 25px;
+  margin-top: 15px;
+  border-bottom: 1px solid #333;
+}
+
+.tabs a {
+  text-decoration: none;
+  color: #aaa;
+  padding-bottom: 10px;
+  transition: 0.3s;
+}
+
+.tabs a.active {
+  color: #fff;
+  border-bottom: 2px solid #007bff;
+}
+
+.tabs a:hover {
+  color: #fff;
+}
+
+/* التنسيق للمحتوى */
+.content {
+  display: flex;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.text-section {
+  flex: 2.5;
+}
+
+.text-section p {
+  margin-bottom: 15px;
+  color: #ccc;
+}
+
+.text-section h2 {
+  margin: 25px 0 10px;
+  font-size: 1.2rem;
+}
+
+/* التنسيق للـ gallery */
+.gallery {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.gallery img {
+  object-fit: cover;
+  width: 32%;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(2);  /* كبر الحجم زي ما تحب */
+  position: relative;
+  z-index: 2000; 
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.9);
+}
+
+/* تغبيش الخلفية لما الصورة تكبر */
+/* body.blur-bg {
+  filter: blur(6px);
+  transition: filter 0.3s ease;
+} */
+
+/* الصورة نفسها */
+.gallery img {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  transform-origin: bottom left; /* أو right top حسب الزاوية اللي تعجبك */
+  
+}
+
+/* الصورة وهي مكبّرة */
+.gallery img.zoomed {
+  transform: scale(2);  /* كبر الحجم زي ما تحب */
+  position: relative;
+  z-index: 2000;        /* فوق أي شيء */
+}
+
+/* التنسيق للـ sidebar */
+.sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.card.light{
+  background-color: #99c2ef;
+  color :#203b58
+}
+/* التنسيق للـ stats */
+.card.stats h3 {
+  margin-bottom: 15px;
+}
+
+/* ضبط العرض */
+.bar {
+  margin-bottom: 10px;
+  position: relative; /* يسمح بظهور القيمة بجانب البار */
+}
+
+.bar span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.progress {
+  background: #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress div {
+  background: #007bff;
+  height: 8px;
+  border-radius: 8px;
+  width: 0%; /* يبدأ من صفر */
+  transition: width 1.0s ease-in-out; /* تحريك سلس للعرض */
+}
+
+/* ضمان أن القيمة تظهر بجانب البار بشكل صحيح */
+.bar .value {
+  position: absolute;
+  right: -15px; /* تحديد المسافة المناسبة */
+  top: 50%;
+  transform: translateY(-80%);
+  font-size: 0.8rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+
+/* التنسيق للـ fact */
+.fact {
+  background-color: #2b1a00;
+  border-left: 5px solid #f0a500;
+}
+
+.fact h3 {
+  color: #f0a500;
+  margin-bottom: 10px;
+}
+
+.fact p {
+  color: #ddd;
+  font-size: 0.9rem;
+}
+
+.fact.light{
+  background-color: #70b5ff;
+  border-left: 5px solid #1988ff;
+}  
+.fact.light h3{
+  color: #007bff;
+}  
+
+.home.light{
+  color: #ffffff;
+}
+
+/* الأنيميشن لظهور المحتوى */
+.tab-content {
+  display: none;
+  animation: fade 0.4s ease-in-out;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* استجابة للـ responsive */
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .gallery img {
+    width: 48%;
+  }
+}
+
+@media (max-width: 600px) {
+  .tabs {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .gallery img {
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+}
