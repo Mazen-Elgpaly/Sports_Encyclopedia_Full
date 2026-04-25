@@ -1,7 +1,7 @@
 <?php $extraCss = ['settings.css']; ?>
 
 <div class="settings-panel" style="max-width:600px;margin:2rem auto;">
-    <a href="<?= BASE_URL ?>/profile" class="back-link" style="display:inline-flex;align-items:center;gap:.4rem;color:#9aa3a6;text-decoration:none;margin-bottom:1.5rem;font-size:.9rem;">
+    <a href="<?= BASE_URL ?>/profile" class="back-link" style="display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;margin-bottom:1.5rem;font-size:.9rem;">
         ← Back to Profile
     </a>
     <h1 class="settings-title">⚙️ Settings</h1>

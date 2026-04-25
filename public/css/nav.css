@@ -23,12 +23,18 @@
     height: 50px;
 }
 
-.profilenav img:hover {
+.profilenav .avatar-img:hover {
     box-shadow: 0 0px 24px 11px rgba(24, 119, 242, 0.6);
   }
 
+  #profileBtn,
+#profileBtn:hover,
+#profileBtn:visited,
+#profileBtn:active {
+    text-decoration: none;
+}
 
-.profilenav img {
+.profilenav .avatar-img {
     transition: box-shadow 0.3s ease;
     width: 100%;
     height: 100%;

@@ -51,7 +51,10 @@
             </div>
             <div style="margin-bottom:1.25rem;">
                 <label style="display:block;font-size:.875rem;color:#9aa3a6;margin-bottom:.4rem;">Profile Photo</label>
-                <input type="file" name="avatar" accept="image/*"
+                <label for="upload-btn" class="upload btn">
+    Upload Image
+</label>
+                <input id = "upload-btn" type="file" name="avatar" accept="image/*"
                        style="color:#9aa3a6;font-size:.875rem;">
             </div>
             <div style="display:flex;gap:.75rem;">
@@ -82,7 +85,10 @@
                 </div>
                 <div style="margin-bottom:1.25rem;">
                     <label style="display:block;font-size:.875rem;color:#9aa3a6;margin-bottom:.4rem;">PDF File * (max 10MB)</label>
-                    <input type="file" name="pdf" accept="application/pdf" required style="color:#9aa3a6;">
+                    <label for="pdf-apload" class="upload btn">
+    Upload PDF
+</label>
+                    <input id= "pdf-apload" type="file" name="pdf" accept="application/pdf" required style="color:#9aa3a6;">
                 </div>
                 <button type="submit" class="btn primary">📤 Submit for Review</button>
             </form>
@@ -115,8 +121,8 @@
                         <?php endif; ?>
                     </div>
                     <div style="display:flex;align-items:center;gap:.75rem;flex-shrink:0;">
-                        <a href="<?= htmlspecialchars(FileUpload::url($c['file_path'])) ?>" target="_blank"
-                           style="color:#0da6f2;font-size:.85rem;text-decoration:none;">📥 View PDF</a>
+                        <a class="btn" href="<?= htmlspecialchars(FileUpload::url($c['file_path'])) ?>" target="_blank"
+                           style="font-size:.85rem;text-decoration:none;">📥 View PDF</a>
                         <span style="<?= $statusStyle ?> padding:.25rem .75rem;border-radius:999px;font-size:.8rem;font-weight:600;">
                             <?= $statusText ?>
                         </span>
