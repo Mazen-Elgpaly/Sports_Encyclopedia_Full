@@ -1,9 +1,9 @@
 <?php
 spl_autoload_register(function (string $class): void {
     $dirs = [
-        __DIR__ . '/',                          // core (صح)
-        __DIR__ . '/../app/controllers/',       // controllers (صح)
-        __DIR__ . '/../app/models/',            // models (صح)
+        __DIR__ . '/',                          
+        __DIR__ . '/../app/controllers/',       
+        __DIR__ . '/../app/models/',            
     ];
     foreach ($dirs as $dir) {
         $file = $dir . $class . '.php';
