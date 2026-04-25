@@ -67,6 +67,7 @@ $router->post('/profile',                'ProfileController',      'update');
 $router->get( '/profile/settings',       'ProfileController',      'settings');
 $router->post('/profile/settings',       'ProfileController',      'saveSettings');
 $router->post('/profile/contribute',     'ProfileController',      'submitContribution');
+$router->post('/profile/delete-avatar',  'ProfileController',      'deleteAvatar');
 
 // ── Statements (chat) — public read, admin write ──────────────────────────────
 $router->get( '/statements',             'StatementsController',   'index');

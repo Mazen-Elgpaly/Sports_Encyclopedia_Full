@@ -59,6 +59,34 @@ class ProfileController extends Controller
         $this->render('profile/index', compact('user','contributions','error','success'));
     }
 
+
+   public function deleteAvatar(): void
+{
+    $this->requireLogin();
+
+    $id = (int)$_SESSION['user_id'];
+
+    $this->users->updateAvatar($id, null);
+
+    if (!empty($_SESSION['avatar'])) {
+        $file = __DIR__ . '/../../public/uploads/' . $_SESSION['avatar'];
+
+        if (file_exists($file)) {
+            unlink($file);
+        }
+    }
+
+    unset($_SESSION['avatar']);
+
+    // مهم جدًا: إعادة تحميل البيانات
+    $user = $this->users->findById($id);
+    $contributions = $this->contrib->getByUser($id);
+
+    $success = "Avatar deleted successfully";
+
+    $this->render('profile/index', compact('user','contributions','success'));
+}
+
     public function settings(): void
     {
         $this->requireLogin();

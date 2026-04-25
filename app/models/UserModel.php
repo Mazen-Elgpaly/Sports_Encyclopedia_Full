@@ -58,7 +58,7 @@ class UserModel extends Model
         );
     }
 
-    public function updateAvatar(int $id, string $path): bool
+    public function updateAvatar(int $id, ?string $path): bool
     {
         return $this->execute('UPDATE users SET avatar = ? WHERE id = ?', [$path, $id]);
     }

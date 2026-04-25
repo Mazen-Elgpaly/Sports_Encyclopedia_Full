@@ -215,3 +215,26 @@ input[type="submit"] {
 .btn:active {
     transform: translateY(0);
 }
+
+.delete-avatar-btn {
+    /* transform: translate(-342px, -62px); */
+    display: inline-block;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 10px;
+    background: #dc3545;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.delete-avatar-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(220, 53, 69, 0.25);
+}
+
+.delete-avatar-btn:active {
+    transform: translateY(0);
+}
