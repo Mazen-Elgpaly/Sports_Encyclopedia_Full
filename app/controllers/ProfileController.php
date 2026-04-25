@@ -36,7 +36,7 @@ class ProfileController extends Controller
             try {
                 $path = FileUpload::upload($_FILES['avatar'], 'avatars', ['image/jpeg','image/png','image/webp'], 2097152);
                 $this->users->updateAvatar($id, $path);
-                $_SESSION['user_avatar'] = $path;
+                $_SESSION['avatar'] = $path;
             } catch (\Exception $e) {
                 $error = 'Avatar: ' . $e->getMessage();
             }

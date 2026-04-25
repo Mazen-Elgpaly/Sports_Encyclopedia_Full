@@ -8,7 +8,8 @@ class AthleteModel extends Model
                 FROM athletes a
                 JOIN sports s ON s.id = a.sport_id
                 LEFT JOIN countries c ON c.id = a.country_id
-                WHERE 1=1';
+                WHERE 1=1
+                AND a.is_egyptian_champion = 0';
         $params = [];
         if ($sport)  { $sql .= ' AND s.name = ?';                      $params[] = $sport; }
         if ($search) { $sql .= ' AND (a.name LIKE ? OR c.name LIKE ?)'; $params[] = "%$search%"; $params[] = "%$search%"; }

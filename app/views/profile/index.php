@@ -53,7 +53,7 @@
                 <label style="display:block;font-size:.875rem;color:#9aa3a6;margin-bottom:.4rem;">Profile Photo</label>
                 <label for="upload-btn" class="upload btn">
     Upload Image
-</label>
+</label><span id="file-name" style="margin-left: 10px;">No file selected</span>
                 <input id = "upload-btn" type="file" name="avatar" accept="image/*"
                        style="color:#9aa3a6;font-size:.875rem;">
             </div>
@@ -140,3 +140,9 @@
 
     </div>
 </main>
+<script>
+    document.getElementById('upload-btn').addEventListener('change', function () {
+    document.getElementById('file-name').textContent =
+        this.files[0]?.name || 'No file selected';
+});
+</script>

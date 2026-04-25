@@ -4,6 +4,7 @@ require_once __DIR__ . '/../models/DashboardModel.php';
 require_once __DIR__ . '/../models/RecordModel.php';
 require_once __DIR__ . '/../models/SportModel.php';
 require_once __DIR__ . '/../models/AthleteModel.php';
+require_once __DIR__ . '/../models/UserModel.php';
 
 class HomeController extends Controller
 {

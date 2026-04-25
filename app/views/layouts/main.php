@@ -103,9 +103,9 @@
             <a id="profileBtn" href="<?= BASE_URL ?>/profile" style="gap:6px;">
                 <!-- <i class="bi bi-person-circle"></i> -->
                  <div class="profilenav">
-                      <?php $avatarSrc = ($user['avatar'] ?? null) ? FileUpload::url($user['avatar']) : null; ?>
+                      <?php $avatarSrc = ($_SESSION['avatar'] ?? null) ? FileUpload::url($_SESSION['avatar']) : null; ?>
                 <div class="avatar-img" style="background:<?= $avatarSrc ? "url('$avatarSrc') center/cover" : 'linear-gradient(135deg,#0da6f2,#007bff)' ?>;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;color:#000;"> 
-                    <?= $avatarSrc ? '' : strtoupper(substr($user['name'], 0, 1)) ?> </div>
+                    <?= $avatarSrc ? '' : strtoupper(substr($_SESSION['user_name'], 0, 1)) ?> </div>
                     <span class="status"></span>
                 </div>
                     <!-- <?= htmlspecialchars($_SESSION['user_name']) ?> -->
