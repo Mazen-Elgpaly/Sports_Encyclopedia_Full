@@ -44,7 +44,7 @@ class SportModel extends Model
 
     public function getAllClubs(?string $sport = null, ?string $search = null): array
     {
-        $sql    = 'SELECT cl.id, cl.name, cl.governorate, cl.image, s.name AS sport_name
+        $sql    = 'SELECT cl.id, cl.name, cl.governorate, cl.history, cl.image, s.name AS sport_name
                    FROM clubs cl JOIN sports s ON s.id = cl.sport_id WHERE 1=1';
         $params = [];
         if ($sport)  { $sql .= ' AND s.name = ?'; $params[] = $sport; }
