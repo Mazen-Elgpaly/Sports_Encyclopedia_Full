@@ -67,4 +67,6 @@ function filterAthletes() {
 sportFilter.addEventListener('change', () => { window.location.href = '<?= BASE_URL ?>/athletes?sport=' + encodeURIComponent(sportFilter.value); });
 searchInput.addEventListener('input', filterAthletes);
 function clearFilters() { window.location.href = '<?= BASE_URL ?>/athletes'; }
+
+
 </script>

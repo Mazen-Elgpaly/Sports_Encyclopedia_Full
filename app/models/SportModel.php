@@ -34,7 +34,7 @@ class SportModel extends Model
     public function getAllChampionships(): array
     {
         $rows = $this->fetchAll(
-            'SELECT c.id, c.name, c.image, s.name AS sport_name
+            'SELECT c.id, c.name, c.image, c.description, s.name AS sport_name
              FROM championships c JOIN sports s ON s.id = c.sport_id ORDER BY s.name, c.name'
         );
         $grouped = [];

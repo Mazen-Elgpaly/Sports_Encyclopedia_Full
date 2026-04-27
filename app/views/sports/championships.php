@@ -1,37 +1,265 @@
 <style>
-body{background-color:#121212;color:#EAEAEA;}
-:root{--primary:#007BFF;--background-dark:#121212;--secondary-dark:#282828;--card-dark:#1A1A1A;--text-muted:#A0A0A0;--panel:#121416;}
-.champ-container{display:flex;flex-direction:column;}
-.champ-main{padding:2rem 2.5rem;flex:1;}
-.champ-main h1{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;margin:0 0 1rem;}
-#sports-dropdown{padding:10px 14px;background:var(--panel);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:#fff;outline:none;}
-.search-box{display:flex;height:40px;width:260px;}
-.search-icon{display:flex;align-items:center;justify-content:center;background:var(--secondary-dark);padding-left:12px;border-radius:8px 0 0 8px;color:var(--text-muted);}
-.search-box input{flex:1;border:none;outline:none;padding:0 12px;background:var(--secondary-dark);border-radius:0 8px 8px 0;color:#fff;font-size:1rem;}
-.search-box input::placeholder{color:var(--text-muted);}
-.filters-row{display:flex;gap:0.75rem;margin-bottom:2rem;flex-wrap:wrap;align-items:center;}
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(450px,1fr));gap:1.5rem;}
-.card{background:var(--card-dark);border-radius:.75rem;padding:1.5rem;display:flex;flex-direction:column;gap:1rem;box-shadow:0 4px 6px rgba(0,0,0,.5);transition:all .3s ease;}
-.card:hover{box-shadow:0 4px 12px rgba(0,123,255,.4);transform:translateY(-4px);}
-.card-content .card-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.25rem;margin:0;}
-.card-content .card-subtitle{font-weight:400;font-size:.875rem;color:var(--text-muted);margin:0;}
-.card-image{width:100%;height:400px;border-radius:.5rem;background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#282828;}
-.card-btn{width:30%;padding:0 1.25rem;height:40px;background:var(--secondary-dark);border-radius:.5rem;border:none;color:white;cursor:pointer;font-size:.9rem;font-weight:500;transition:background .2s;}
-.card-btn:hover{background:var(--primary);}
-.no-results-msg{text-align:center;color:var(--text-muted);padding:2rem;font-size:1.1rem;}
+    body {
+        background-color: #121212;
+        color: #EAEAEA;
+    }
+
+    :root {
+        --primary: #007BFF;
+        --background-dark: #121212;
+        --secondary-dark: #282828;
+        --card-dark: #1A1A1A;
+        --text-muted: #A0A0A0;
+        --panel: #121416;
+    }
+
+    .champ-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .champ-main {
+        padding: 2rem 2.5rem;
+        flex: 1;
+    }
+
+    .champ-main h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 700;
+        margin: 0 0 1rem;
+    }
+
+    #sports-dropdown {
+        padding: 10px 14px;
+        background: var(--panel);
+        border: 1px solid rgba(255, 255, 255, .1);
+        border-radius: 10px;
+        color: #fff;
+        outline: none;
+    }
+
+    .search-box {
+        display: flex;
+        height: 40px;
+        width: 260px;
+    }
+
+    .search-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--secondary-dark);
+        padding-left: 12px;
+        border-radius: 8px 0 0 8px;
+        color: var(--text-muted);
+    }
+
+    .search-box input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 0 12px;
+        background: var(--secondary-dark);
+        border-radius: 0 8px 8px 0;
+        color: #fff;
+        font-size: 1rem;
+    }
+
+    .search-box input::placeholder {
+        color: var(--text-muted);
+    }
+
+    .filters-row {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .card {
+        background: var(--card-dark);
+        border-radius: .75rem;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, .5);
+        transition: all .3s ease;
+    }
+
+    .card:hover {
+        box-shadow: 0 4px 12px rgba(0, 123, 255, .4);
+        transform: translateY(-4px);
+    }
+
+    .card-content .card-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin: 0;
+    }
+
+    .card-content .card-subtitle {
+        font-weight: 400;
+        font-size: .875rem;
+        color: var(--text-muted);
+        margin: 0;
+    }
+
+    .card-image {
+        width: 100%;
+        height: 400px;
+        border-radius: .5rem;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #282828;
+    }
+
+    .card-btn {
+        width: 30%;
+        padding: 0 1.25rem;
+        height: 40px;
+        background: var(--secondary-dark);
+        border-radius: .5rem;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: .9rem;
+        font-weight: 500;
+        transition: background .2s;
+    }
+
+    .card-btn:hover {
+        background: var(--primary);
+    }
+
+    .no-results-msg {
+        text-align: center;
+        color: var(--text-muted);
+        padding: 2rem;
+        font-size: 1.1rem;
+    }
+
+    .champ-modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .champ-modal.active {
+        display: flex;
+    }
+
+    .champ-modal-overlay {
+        position: absolute;
+        inset: 0;
+        backdrop-filter: blur(12px);
+        background: rgba(0, 0, 0, .55);
+    }
+
+    .champ-modal-content {
+        position: relative;
+        z-index: 2;
+        width: min(1000px, 90%);
+        min-height: 550px;
+        background: #181818;
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        animation: champPopup .3s ease;
+    }
+
+    .champ-modal-image {
+        width: 50%;
+    }
+
+    .champ-modal-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .champ-modal-details {
+        width: 50%;
+        padding: 2rem;
+        overflow-y: auto;
+    }
+
+    .champ-modal-details h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    #champModalSport {
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+    }
+
+    #champModalDescription {
+        line-height: 1.8;
+    }
+
+    .champ-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        width: 55px;
+        height: 55px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .1);
+        color: white;
+        cursor: pointer;
+        font-size: 1.4rem;
+    }
+
+    .champ-arrow.left {
+        left: 30px;
+    }
+
+    .champ-arrow.right {
+        right: 30px;
+    }
+
+    @keyframes champPopup {
+        from {
+            opacity: 0;
+            transform: scale(.85);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <div class="champ-container">
     <main class="champ-main">
-        <div><h1>Official Championships</h1></div>
+        <div>
+            <h1>Official Championships</h1>
+        </div>
 
         <!-- Filters row — dropdown + search, exactly like original -->
         <div class="filters-row">
             <select id="sports-dropdown">
                 <option value="All">All</option>
                 <?php foreach ($names as $n): ?>
-                    <option value="<?= htmlspecialchars($n) ?>" <?= ($sport === $n)?'selected':'' ?>>
+                    <option value="<?= htmlspecialchars($n) ?>" <?= ($sport === $n) ? 'selected' : '' ?>>
                         <?= htmlspecialchars($n) ?>
                     </option>
                 <?php endforeach; ?>
@@ -53,51 +281,128 @@ body{background-color:#121212;color:#EAEAEA;}
                     $allChamps[] = [
                         'id'    => $ch['id'],
                         'name'  => $ch['name'],
-                        'image' => $ch['image'] ? (BASE_URL.'/'.$ch['image']) : '',
+                        'image' => $ch['image'] ? (BASE_URL . '/' . $ch['image']) : '',
                         'sport' => $sportName,
+                        'description' => $ch['description'] ?? '',
                     ];
                 }
             }
             foreach ($allChamps as $ch):
             ?>
-            <div class="card"
-                 data-sport="<?= htmlspecialchars($ch['sport']) ?>"
-                 data-name="<?= htmlspecialchars(strtolower($ch['name'])) ?>">
-                <div class="card-image"
-                     style="background-image:url('<?= htmlspecialchars($ch['image']) ?>')">
+                <div class="card"
+                    data-sport="<?= htmlspecialchars($ch['sport']) ?>"
+                    data-name="<?= htmlspecialchars(strtolower($ch['name'])) ?>">
+                    <div class="card-image"
+                        style="background-image:url('<?= htmlspecialchars($ch['image']) ?>')">
+                    </div>
+                    <div class="card-content">
+                        <p class="card-title"><?= htmlspecialchars($ch['name']) ?></p>
+                        <p class="card-subtitle"><?= htmlspecialchars($ch['sport']) ?></p>
+                        <button
+                            class="card-btn view-champ-btn"
+                            data-name="<?= htmlspecialchars($ch['name']) ?>"
+                            data-sport="<?= htmlspecialchars($ch['sport']) ?>"
+                            data-image="<?= htmlspecialchars($ch['image']) ?>"
+                            data-description="<?= htmlspecialchars($ch['description']) ?>">
+                            View Details
+                        </button>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <p class="card-title"><?= htmlspecialchars($ch['name']) ?></p>
-                    <p class="card-subtitle"><?= htmlspecialchars($ch['sport']) ?></p>
-                </div>
-            </div>
             <?php endforeach; ?>
         </div>
+        <div id="championshipModal" class="champ-modal">
 
+            <div class="champ-modal-overlay"></div>
+
+            <button id="prevChamp" class="champ-arrow left">❮</button>
+
+            <div class="champ-modal-content">
+
+                <div class="champ-modal-image">
+                    <img id="champModalImage" src="" alt="">
+                </div>
+
+                <div class="champ-modal-details">
+                    <h2 id="champModalName"></h2>
+                    <p id="champModalSport"></p>
+                    <div id="champModalDescription"></div>
+                </div>
+
+            </div>
+
+            <button id="nextChamp" class="champ-arrow right">❯</button>
+
+        </div>
         <div class="no-results-msg" id="noResults" style="display:none;">No championships found.</div>
     </main>
 </div>
 
 <script>
-const dropdown    = document.getElementById('sports-dropdown');
-const searchInput = document.getElementById('champSearch');
-const cards       = Array.from(document.querySelectorAll('#cards-grid .card'));
-const noResults   = document.getElementById('noResults');
+    const dropdown = document.getElementById('sports-dropdown');
+    const searchInput = document.getElementById('champSearch');
+    const cards = Array.from(document.querySelectorAll('#cards-grid .card'));
+    const noResults = document.getElementById('noResults');
 
-function filterCards() {
-    const sport  = dropdown.value;
-    const search = searchInput.value.toLowerCase().trim();
-    let vis = 0;
-    cards.forEach(card => {
-        const matchSport  = sport === 'All' || card.dataset.sport === sport;
-        const matchSearch = !search || card.dataset.name.includes(search);
-        const show = matchSport && matchSearch;
-        card.style.display = show ? '' : 'none';
-        if (show) vis++;
+    function filterCards() {
+        const sport = dropdown.value;
+        const search = searchInput.value.toLowerCase().trim();
+        let vis = 0;
+        cards.forEach(card => {
+            const matchSport = sport === 'All' || card.dataset.sport === sport;
+            const matchSearch = !search || card.dataset.name.includes(search);
+            const show = matchSport && matchSearch;
+            card.style.display = show ? '' : 'none';
+            if (show) vis++;
+        });
+        noResults.style.display = vis === 0 ? 'block' : 'none';
+    }
+
+    dropdown.addEventListener('change', filterCards);
+    searchInput.addEventListener('input', filterCards);
+
+    const modal = document.getElementById('championshipModal');
+    const overlay = document.querySelector('.champ-modal-overlay');
+    const detailButtons = Array.from(document.querySelectorAll('.view-champ-btn'));
+
+    let currentIndex = 0;
+
+    function openChamp(index) {
+        currentIndex = index;
+
+        const btn = detailButtons[index];
+
+        document.getElementById('champModalName').textContent =
+            btn.dataset.name;
+
+        document.getElementById('champModalSport').textContent =
+            btn.dataset.sport;
+
+        document.getElementById('champModalDescription').textContent =
+            btn.dataset.description;
+
+        document.getElementById('champModalImage').src =
+            btn.dataset.image;
+
+        modal.classList.add('active');
+    }
+
+    detailButtons.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            openChamp(index);
+        });
     });
-    noResults.style.display = vis === 0 ? 'block' : 'none';
-}
 
-dropdown.addEventListener('change', filterCards);
-searchInput.addEventListener('input', filterCards);
+    document.getElementById('nextChamp').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % detailButtons.length;
+        openChamp(currentIndex);
+    });
+
+    document.getElementById('prevChamp').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + detailButtons.length) % detailButtons.length;
+        openChamp(currentIndex);
+    });
+
+    overlay.addEventListener('click', () => {
+        modal.classList.remove('active');
+    });
 </script>
