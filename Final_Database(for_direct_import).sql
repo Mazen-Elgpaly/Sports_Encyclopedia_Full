@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2026 at 03:52 AM
+-- Generation Time: May 01, 2026 at 06:10 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -4126,16 +4126,6 @@ INSERT INTO `records` (`id`, `sport_id`, `specialty`, `athlete_name`, `record_te
 (18, 10, 'Flyweight', 'Roman Gonzalez', '51-4 (41 KOs)', '2023-12-23', 268, 36, NULL, '160 cm', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
 (19, 10, 'Light Heavyweight', 'Dmitry Bivol', '22-0 (11 KOs)', '2023-11-25', 77, 33, NULL, '183 cm', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
 (20, 10, 'Bantamweight', 'Nonito Donaire', '42-8 (28 KOs)', '2023-07-15', 270, 41, NULL, '165 cm', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
-(21, 11, 'Freestyle Wrestling', 'Buvaisar Saitiev', '3x Olympic Gold', '2008-08-21', 77, 48, NULL, '178 cm', NULL, NULL, NULL, 3, 6, NULL, NULL, 0, NULL),
-(22, 11, 'Greco-Roman', 'Aleksandr Karelin', '887-2', '2000-09-26', 77, 56, NULL, '191 cm', '130 kg', NULL, NULL, 3, 9, NULL, NULL, 0, NULL),
-(23, 11, 'Freestyle 97kg', 'Abdulrashid Sadulaev', '2x Olympic Gold', '2021-08-07', 77, 27, NULL, '178 cm', NULL, NULL, NULL, 2, 5, NULL, NULL, 0, NULL),
-(24, 11, 'Women\'s Freestyle', 'Kaori Icho', '4x Olympic Gold', '2016-08-18', 56, 39, NULL, '166 cm', NULL, NULL, NULL, 4, 10, NULL, NULL, 0, NULL),
-(25, 11, 'Greco-Roman 77kg', 'Roman Vlasov', '2x Olympic Gold', '2016-08-16', 77, 32, NULL, '180 cm', NULL, NULL, NULL, 2, 2, NULL, NULL, 0, NULL),
-(26, 11, 'Freestyle 65kg', 'Soslan Ramonov', 'Olympic Gold', '2016-08-21', 77, 34, NULL, '170 cm', NULL, NULL, NULL, 1, 1, NULL, 3, 0, NULL),
-(27, 11, 'Women\'s 53kg', 'Saori Yoshida', '3x Olympic Gold', '2012-08-09', 56, 41, NULL, '157 cm', NULL, NULL, NULL, 3, 13, NULL, NULL, 0, NULL),
-(28, 11, 'Greco-Roman 60kg', 'Mijain Lopez', '4x Olympic Gold', '2021-08-02', 278, 41, NULL, '195 cm', NULL, NULL, NULL, 4, 5, NULL, NULL, 0, NULL),
-(29, 11, 'Freestyle 74kg', 'Jordan Burroughs', 'Olympic Gold + 7 World Titles', '2023-09-24', 25, 35, NULL, '175 cm', NULL, NULL, NULL, 1, 7, NULL, NULL, 0, NULL),
-(30, 11, 'Women\'s 68kg', 'Tamyra Mensah-Stock', 'Olympic Gold', '2021-08-03', 25, 30, NULL, '168 cm', NULL, NULL, NULL, 1, 1, NULL, NULL, 0, NULL),
 (31, 12, 'Ice Hockey Goalie', 'Martin Brodeur', '691 Wins', '2017-02-07', 52, 51, NULL, '188 cm', '98 kg', NULL, NULL, 2, NULL, NULL, NULL, 0, NULL),
 (32, 12, 'Center', 'Wayne Gretzky', '2857 Points', '1999-04-18', 52, 63, NULL, '183 cm', '84 kg', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
 (33, 12, 'Right Wing', 'Alexander Ovechkin', '850+ Goals', '2024-03-21', 77, 38, NULL, '190 cm', '107 kg', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
@@ -4266,7 +4256,6 @@ INSERT INTO `sports` (`id`, `name`, `header_image`, `logo_image`, `description`,
 (8, 'Swimming', 'images/swimming-header.png', 'images/logos/swimming-back.png', '[\"Swimming is a water-based sport involving propelling the body through water using arms and legs. Competitive swimming includes different strokes such as freestyle, backstroke, breaststroke, and butterfly.\", \"It requires cardiovascular endurance, strength, technique, and flexibility. Swimmers must optimize stroke efficiency, breathing rhythm, and turn speed for maximal performance.\", \"Swimming can be individual or relay events, with distances ranging from short sprints to long-distance marathons, emphasizing both speed and stamina.\"]', '[\"Swimming competitions date back to ancient civilizations, but modern competitive swimming began in the 19th century in Europe.\", \"It became an Olympic sport in 1896, with standardized strokes and pool lengths evolving over time.\"]', '[\"Each stroke has specific rules regarding movement and body position. Swimmers must touch walls during turns according to stroke regulations.\", \"False starts, improper turns, and illegal strokes result in disqualification.\", \"Timing is recorded with electronic touchpads for accuracy.\"]', '[\"Swimwear designed for performance, goggles, swim caps, and sometimes fins or paddles for training.\", \"Professional pools have lane lines, starting blocks, and backstroke flags for competitive standards.\"]', 'The fastest recorded human swim in 100m freestyle is under 47 seconds.', '2026-04-19 06:05:50', 'images/swimming-front.jpg'),
 (9, 'Running', 'images/running-header.png', 'images/logos/running-back.png', '[\"Running is a fundamental human activity and competitive sport involving rapid locomotion using the legs. Track events range from short sprints to middle- and long-distance races, each requiring specialized training.\", \"It emphasizes cardiovascular endurance, speed, stride mechanics, and mental toughness. Proper footwear, running surfaces, and technique are crucial for performance and injury prevention.\", \"Running events can be individual or part of relay teams, with competitions including marathons, sprints, hurdles, and cross-country races.\"]', '[\"Running is one of the oldest forms of human competition, with records of footraces dating back to ancient Greece and the Olympic Games.\", \"Modern track and field standardized distances, rules, and events during the 19th and 20th centuries, creating the framework for international competitions.\"]', '[\"Races are run over specific distances, with starting blocks used for sprints. Athletes must remain in their designated lanes when required.\", \"False starts, lane infractions, and interference with other competitors result in penalties or disqualification.\", \"Timing is measured precisely, often to hundredths of a second.\"]', '[\"Running shoes designed for distance or sprinting, breathable athletic wear, and sometimes timing devices or GPS trackers.\", \"Track surfaces can be synthetic, asphalt, or grass depending on competition type.\"]', 'The world record for the fastest 100m sprint is under 9.6 seconds.', '2026-04-19 06:05:51', 'images/running-front.jpg'),
 (10, 'Boxing', 'images/boxing-header.png', 'images/logos/boxing-back.png', '[\"Boxing is a combat sport where two competitors engage in controlled bouts, aiming to score points or achieve knockouts using punches. The sport requires strength, endurance, strategy, and defensive skills.\", \"Training includes cardiovascular conditioning, strength work, speed drills, and technique refinement. Fighters study opponents to anticipate strategies and counter effectively.\", \"Boxing matches are structured in rounds, each lasting a few minutes with breaks in between. Defensive maneuvers, footwork, and head movement are critical components.\"]', '[\"Boxing traces back to ancient civilizations like Egypt and Greece. Modern boxing rules emerged in the 18th century in England with the introduction of gloves and rounds.\", \"The sport evolved to include professional, amateur, and Olympic levels, creating a global competitive framework.\"]', '[\"Competitors must follow weight divisions, use approved gloves, and adhere to round timing.\", \"Punches must target legal areas (above the waist). Fouls like hitting below the belt, headbutting, or holding are penalized.\", \"Matches are scored by judges based on clean punches, defense, and ring control.\"]', '[\"Boxing gloves, hand wraps, mouthguards, headgear for amateurs, and protective shorts and shoes.\", \"Training equipment includes heavy bags, speed bags, and mitts for skill development.\"]', 'Muhammad Ali was known for his incredible reflexes, coining the phrase \'float like a butterfly, sting like a bee\'.', '2026-04-19 06:05:51', 'images/boxing-front.jpg'),
-(11, 'Wrestling', 'images/wrestling-header.png', NULL, '[\"Wrestling is a grappling combat sport where two competitors attempt to gain control over each other using holds, throws, and pins. The sport demands strength, endurance, technique, and strategic thinking.\", \"Matches require mastering takedowns, escapes, reversals, and pinning combinations. Physical conditioning and agility are essential for effective performance.\", \"Wrestling is practiced in multiple styles such as freestyle, Greco-Roman, and folkstyle, each with specific rules and scoring systems.\"]', '[\"Wrestling is one of the oldest sports known to humanity, with origins in ancient Egypt, Greece, and Mesopotamia. It was a core Olympic sport in ancient times.\", \"Modern international wrestling is regulated by United World Wrestling, governing rules, competitions, and Olympic participation.\"]', '[\"Points are scored for takedowns, reversals, exposures, and near-fall positions.\", \"Illegal moves such as choking, joint manipulation, or strikes are penalized.\", \"Matches are timed, with periods varying by competition level, and victory can be by points, fall, or technical superiority.\"]', '[\"Wrestling singlets, headgear to protect ears, wrestling shoes, and mats with defined boundaries.\", \"Training includes resistance training, agility drills, and sparring sessions.\"]', 'Wrestlers can generate enormous force using leverage and technique, sometimes lifting opponents several times their own body weight.', '2026-04-19 06:05:51', NULL),
 (12, 'Hockey', 'images/hockey-header.png', 'images/logos/hockey-back.png', '[\"Hockey is a fast-paced team sport played on ice or field, where players aim to score goals using sticks to propel a puck or ball. It requires skating or running skills, teamwork, and quick decision-making.\", \"The game emphasizes coordination, stamina, and tactical awareness. Players specialize in forwards, defensemen, and goalkeepers, with roles that shift dynamically during play.\", \"Matches are structured in periods, with stoppages for penalties, goals, or out-of-bounds play. Quick transitions between offense and defense make it highly demanding physically and mentally.\"]', '[\"Ice hockey originated in Canada in the 19th century, evolving from various stick-and-ball games. Field hockey has roots in ancient civilizations and was formalized in 19th century England.\", \"Both forms of hockey became popular internationally, featuring professional leagues, Olympic competitions, and World Cups.\"]', '[\"Players may not use their hands (except goalkeepers in ice hockey) to touch the puck/ball. Offside, icing, and penalty rules regulate fair play.\", \"Penalties include tripping, high-sticking, and checking infractions.\", \"Games can go into overtime or shootouts if tied.\"]', '[\"Sticks, skates (ice hockey), protective padding, helmets, gloves, and team uniforms.\", \"Ice hockey uses a puck; field hockey uses a small hard ball.\"]', 'The Stanley Cup is the oldest professional sports trophy in North America, first awarded in 1893.', '2026-04-19 06:05:51', 'images/hockey-front.jpg'),
 (13, 'Cycling', 'images/cycling-header.png', 'images/logos/cycling-back.png', '[\"Cycling is a sport involving riding bicycles for competition or endurance. It includes road racing, track cycling, mountain biking, and BMX, demanding stamina, speed, and technical bike handling.\", \"Athletes must manage pacing, terrain, wind, and gear selection. Aerodynamics, endurance, and tactical strategies are critical for success.\", \"Cycling competitions can be individual time trials, mass-start races, or multi-stage tours, testing physical conditioning and strategic intelligence.\"]', '[\"Cycling emerged in the 19th century with the invention of the modern bicycle. Competitive races began in Europe, with events like the Tour de France starting in 1903.\", \"Today, cycling has professional tours, Olympic events, and recreational popularity worldwide.\"]', '[\"Competitors must adhere to race rules regarding drafting, lane usage, and safety. Violations can result in penalties or disqualification.\", \"Races are timed or point-based depending on the event format.\", \"Equipment regulations govern bicycle dimensions, weight, and safety gear.\"]', '[\"Bicycles tailored for racing or terrain, helmets, cycling shoes, gloves, and aerodynamic clothing.\", \"Additional tools include heart rate monitors, GPS devices, and hydration systems.\"]', 'The Tour de France covers over 3,000 km in 21 stages, challenging the endurance of the world\'s best cyclists.', '2026-04-19 06:05:51', 'images/cycling-front.jpg'),
 (14, 'MMA', 'images/mma-header.png', 'images/logos/mma-back.png', '[\"Mixed Martial Arts (MMA) is a full-contact combat sport that combines techniques from striking and grappling disciplines such as boxing, kickboxing, wrestling, jiu-jitsu, and Muay Thai.\", \"Fighters must develop skills in both stand-up fighting and ground combat. Conditioning, strength, flexibility, and strategy are crucial for success inside the cage.\", \"MMA bouts take place in a cage or ring and are divided into timed rounds. Victory can occur through knockout, submission, or judges\' decision.\"]', '[\"MMA began with early no-rules fights but became formalized with the founding of the UFC in 1993, introducing weight classes, time limits, and safety regulations.\", \"Today, MMA is one of the fastest-growing sports globally, with major promotions like UFC, ONE Championship, and Bellator.\"]', '[\"Fighters must stay within weight divisions and follow unified rules including legal striking zones and submission allowances.\", \"Illegal moves include headbutts, eye gouging, groin attacks, and strikes to the back of the head.\", \"Matches can be won by knockout, technical knockout, submission, or judges\' scorecards.\"]', '[\"4oz MMA gloves, mouthguards, protective cups, shorts, and sometimes shin guards in amateur divisions.\", \"Training tools include pads, heavy bags, grappling mats, and cages.\"]', 'The UFC has popularized MMA globally, turning it into a mainstream sport attracting millions of viewers.', '2026-04-19 06:05:51', 'images/mma-front.jpg'),
@@ -4321,9 +4310,6 @@ INSERT INTO `sport_gallery` (`id`, `sport_id`, `image_path`, `sort_order`) VALUE
 (28, 10, 'images/boxing1.png', 0),
 (29, 10, 'images/boxing2.png', 1),
 (30, 10, 'images/boxing3.png', 2),
-(31, 11, 'images/wrestling1.png', 0),
-(32, 11, 'images/wrestling2.png', 1),
-(33, 11, 'images/wrestling3.png', 2),
 (34, 12, 'images/hockey1.png', 0),
 (35, 12, 'images/hockey2.png', 1),
 (36, 12, 'images/hockey3.png', 2),
@@ -4818,11 +4804,6 @@ INSERT INTO `sport_stats` (`id`, `sport_id`, `stat_name`, `stat_value`) VALUES
 (48, 10, 'Flexibility', 70),
 (49, 10, 'Speed', 88),
 (50, 10, 'Reflex', 95),
-(51, 11, 'Strength', 90),
-(52, 11, 'Agility', 85),
-(53, 11, 'Flexibility', 80),
-(54, 11, 'Speed', 78),
-(55, 11, 'Reflex', 85),
 (56, 12, 'Strength', 80),
 (57, 12, 'Agility', 88),
 (58, 12, 'Flexibility', 70),
@@ -4914,8 +4895,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password_hash`, `role`, `avatar`, `remember_token`, `token_expires`, `created_at`) VALUES
-(1, 'Admin', 'admin@sports.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', 'avatars/69eaa46d1712a5.05753584.jpg', NULL, NULL, '2026-04-19 06:05:19'),
-(2, 'mazen mohamed', 'mazen@sports.com', '$2y$10$Lcgw9cna0DiXRB.H8WPF3ue/z5oGbcpF2eGXredBY2i/TeNt7ZH7e', 'user', 'avatars/69efc77e2e9033.62458700.jpg', NULL, NULL, '2026-04-23 23:08:26');
+(1, 'Admin', 'admin@sports.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', 'avatars/69f49b6f071182.06615668.jpg', NULL, NULL, '2026-04-19 06:05:19'),
+(2, 'Mazen Mohamed', 'mazen@sports.com', '$2y$10$Lcgw9cna0DiXRB.H8WPF3ue/z5oGbcpF2eGXredBY2i/TeNt7ZH7e', 'user', 'avatars/69efc77e2e9033.62458700.jpg', NULL, NULL, '2026-04-23 23:08:26');
 
 --
 -- Indexes for dumped tables
@@ -5028,8 +5009,8 @@ ALTER TABLE `feedback`
 --
 ALTER TABLE `records`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `sport_id` (`sport_id`),
-  ADD KEY `country_id` (`country_id`);
+  ADD KEY `country_id` (`country_id`),
+  ADD KEY `records_ibfk_1` (`sport_id`);
 
 --
 -- Indexes for table `sports`
@@ -5313,7 +5294,7 @@ ALTER TABLE `feedback`
 -- Constraints for table `records`
 --
 ALTER TABLE `records`
-  ADD CONSTRAINT `records_ibfk_1` FOREIGN KEY (`sport_id`) REFERENCES `sports` (`id`),
+  ADD CONSTRAINT `records_ibfk_1` FOREIGN KEY (`sport_id`) REFERENCES `sports` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `records_ibfk_2` FOREIGN KEY (`country_id`) REFERENCES `countries` (`id`) ON DELETE SET NULL;
 
 --
