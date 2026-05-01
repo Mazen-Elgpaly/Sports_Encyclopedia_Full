@@ -207,7 +207,7 @@ main {
 
 /* ===== Card ===== */
 .result-card {
-  
+
   background-color: #1a1a1a;
   border-radius: 0.5rem;
   padding: 0.75rem;
@@ -241,8 +241,8 @@ main {
 
 
   background: linear-gradient(to right,
-  #1b1b22 0%,
-  /* طرف أيسر */
+      #1b1b22 0%,
+      /* طرف أيسر */
       #1b1b22 0%,
       /* طرف أيسر */
       rgba(0, 0, 0, 0) 15%,
@@ -253,14 +253,13 @@ main {
       /* طرف أيمن */
       #1b1b22 100%
       /* طرف أيمن */
-      ), linear-gradient(
-        to bottom,
-        rgba(0,0,0,0) 0%,
-        rgba(0,0,0,0) 90%,
-        #1b1b22 100%
-    );
+    ), linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 90%,
+      #1b1b22 100%);
 
 }
+
 .card-image img {
   width: 100%;
   height: 100%;
@@ -291,3 +290,8 @@ main {
   color: var(--primary);
 }
 
+img.emoji {
+  width: 1.5em;
+  /* height: 1em; */
+  vertical-align: -0.55em;
+}

@@ -22,7 +22,7 @@
                 </span>
                 <?php if ($athlete['country_name']): ?>
                 <span style="background:rgba(16,185,129,.15);color:#6ee7b7;border-radius:999px;padding:.2rem .75rem;font-size:.85rem;margin-left:.5rem;">
-                    🌍 <?= htmlspecialchars($athlete['country_name']) ?>
+                    🌍 <span class="flag"> <?= htmlspecialchars($athlete['country_name']) ?></span>
                 </span>
                 <?php endif; ?>
             </div>
@@ -54,10 +54,11 @@
         </div>
     </section>
     <?php endif; ?>
-
+    
+    <div style="display: flex;">
     <!-- Chart -->
     <?php if (!empty($athlete['chart'])): ?>
-    <section style="margin-bottom:2rem;">
+    <section style="margin-bottom:2rem;width:50%;">
         <h2 style="font-size:1.2rem;font-weight:600;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid #283339;">
             📈 <?= htmlspecialchars($athlete['chart_about'] ?? 'Performance Chart') ?>
         </h2>
@@ -90,22 +91,23 @@
 
     <!-- Timeline -->
     <?php if (!empty($athlete['timeline'])): ?>
-    <section style="margin-bottom:2rem;">
+    <section style="margin-bottom:2rem;width:50%;">
         <h2 style="font-size:1.2rem;font-weight:600;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid #283339;">🕐 Career Timeline</h2>
         <div style="position:relative;padding-left:3.5rem;">
             <div style="position:absolute;left:50px;top:0;bottom:0;width:2px;background:#283339;"></div>
             <?php foreach ($athlete['timeline'] as $ev): ?>
-            <div style="position:relative;padding:.75rem 0;display:flex;align-items:flex-start;gap:1rem;">
+            <div style="position:relative;padding:0.75rem 0.5rem;display:flex;align-items:flex-start;gap:1rem;">
                 <div style="position:absolute;left:-2.6rem;width:50px;text-align:right;font-weight:700;color:#0da6f2;font-size:.9rem;">
                     <?= $ev['event_year'] ?>
                 </div>
-                <div style="position:absolute;left:4px;width:10px;height:10px;border-radius:50%;background:#0da6f2;border:2px solid #0b0e13;top:.9rem;"></div>
+                <div style="position:absolute;width:10px;height:10px;border-radius:50%;background:#0da6f2;border:2px solid #0b0e13;top:.9rem;"></div>
                 <div style="color:#9aa3a6;font-size:.9rem;padding-left:.75rem;"><?= htmlspecialchars($ev['event_text']) ?></div>
             </div>
             <?php endforeach; ?>
         </div>
     </section>
     <?php endif; ?>
+    </div>
 
     <div style="margin-top:2rem;">
         <a href="<?= BASE_URL ?>/athletes/compare?left=<?= urlencode($athlete['slug']) ?>"
@@ -118,3 +120,13 @@
         </a>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script>
+<script>
+   document.querySelectorAll('.flag').forEach(el => {
+    twemoji.parse(el, {
+        folder: 'svg',
+        ext: '.svg'
+    });
+});
+</script>

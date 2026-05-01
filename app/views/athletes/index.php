@@ -38,7 +38,7 @@
             </div>
             <div class="card-info">
                 <p class="name"><?= htmlspecialchars($a['name']) ?></p>
-                <p class="country"><?= htmlspecialchars($a['country_name'] ?? '—') ?></p>
+                <p class="country"> <span class="flag"> <?= htmlspecialchars($a['country_name'] ?? '—') ?> </span> </p>
                 <p class="sport"><?= htmlspecialchars($a['sport_name']) ?></p>
             </div>
         </a>
@@ -69,4 +69,13 @@ searchInput.addEventListener('input', filterAthletes);
 function clearFilters() { window.location.href = '<?= BASE_URL ?>/athletes'; }
 
 
+</script>
+<script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script>
+<script>
+    document.querySelectorAll('.flag').forEach(el => {
+    twemoji.parse(el, {
+        folder: 'svg',
+        ext: '.svg'
+    });
+});
 </script>

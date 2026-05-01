@@ -18,14 +18,14 @@
     <h2 class="section-title">Popular Sports</h2>
     <div class="cards-container" id="cardsContainer">
         <?php foreach ($sports as $sport):
-            $headerImg = $sport['header_image'] ? BASE_URL.'/'.$sport['header_image'] : '';
+            $cardImg = $sport['card_image'] ? BASE_URL.'/'.$sport['card_image'] : '';
             $logoImg   = $sport['logo_image']   ? BASE_URL.'/'.$sport['logo_image']   : '';
         ?>
         <div class="card" data-sport-name="<?= htmlspecialchars(strtolower($sport['name'])) ?>">
             <div class="card-inner">
                 <div class="card-front">
-                    <?php if ($headerImg): ?>
-                        <img src="<?= htmlspecialchars($headerImg) ?>" alt="<?= htmlspecialchars($sport['name']) ?>">
+                    <?php if ($cardImg): ?>
+                        <img src="<?= htmlspecialchars($cardImg) ?>" alt="<?= htmlspecialchars($sport['name']) ?>">
                     <?php else: ?>
                         <div style="height:180px;background:#1e293b;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:3rem;border:1px solid rgba(255,255,255,.1);">🏅</div>
                     <?php endif; ?>
