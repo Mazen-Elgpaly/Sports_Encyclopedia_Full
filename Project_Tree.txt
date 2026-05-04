@@ -55,8 +55,7 @@ Sports_Encyclopedia
 │       │   ├── reset.php
 │       │   ├── resetpass.php
 │       │   ├── settings.php
-│       │   ├── tips.php
-│       │   └── _stub.php
+│       │   └── tips.php
 │       ├── profile
 │       │   ├── index.php
 │       │   └── settings.php
@@ -76,6 +75,9 @@ Sports_Encyclopedia
 │   ├── FileUpload.php
 │   ├── Model.php
 │   └── Router.php
+├── data.sql
+├── Final_Database(for_direct_import).sql
+├── Project_Tree.png
 ├── public
 │   ├── .htaccess
 │   ├── css
@@ -619,14 +621,17 @@ Sports_Encyclopedia
 │   │   ├── boxing1.png
 │   │   ├── boxing2.png
 │   │   ├── boxing3.png
+│   │   ├── British_Grand_Prix.jpg
 │   │   ├── caribbean_series.jpg
 │   │   ├── champions_hockey_league.jpg
 │   │   ├── clubs
 │   │   │   ├── aka.png
 │   │   │   ├── all_england.png
+│   │   │   ├── ALPINE.jpg
 │   │   │   ├── american_top_team.png
 │   │   │   ├── argentina_hockey.png
 │   │   │   ├── arnold_festival.png
+│   │   │   ├── ASTON MARTIN.jpg
 │   │   │   ├── augusta_national.png
 │   │   │   ├── australian_hockey.png
 │   │   │   ├── australian_open.png
@@ -642,10 +647,12 @@ Sports_Encyclopedia
 │   │   │   ├── chinese_swimming.png
 │   │   │   ├── chinese_weightlifting.png
 │   │   │   ├── england_hockey.png
+│   │   │   ├── FERRARI.jpg
 │   │   │   ├── german_hockey.png
 │   │   │   ├── german_swimming.png
 │   │   │   ├── gleasons.png
 │   │   │   ├── global_sports.png
+│   │   │   ├── Haas.jpg
 │   │   │   ├── heat.png
 │   │   │   ├── ifbb_pro.png
 │   │   │   ├── ineos_grenadiers.png
@@ -658,6 +665,8 @@ Sports_Encyclopedia
 │   │   │   ├── manchester_united.png
 │   │   │   ├── matchroom.png
 │   │   │   ├── mayweather_boxing.png
+│   │   │   ├── MCLAREN.jpg
+│   │   │   ├── Mercedes-AMG.jpg
 │   │   │   ├── metroflex.png
 │   │   │   ├── movistar.png
 │   │   │   ├── mtk.png
@@ -671,6 +680,7 @@ Sports_Encyclopedia
 │   │   │   ├── psg.png
 │   │   │   ├── quickstep.png
 │   │   │   ├── real_madrid.png
+│   │   │   ├── RedBull.jpg
 │   │   │   ├── roland_garros.png
 │   │   │   ├── royal_melbourne.png
 │   │   │   ├── spurs.png
@@ -685,12 +695,14 @@ Sports_Encyclopedia
 │   │   │   ├── usta_center.png
 │   │   │   ├── warriors.png
 │   │   │   └── wild_card.png
+│   │   ├── Constructors_Championship.jpg
 │   │   ├── copa_america.jpg
 │   │   ├── cycling-front.jpg
 │   │   ├── cycling-header.png
 │   │   ├── cycling1.png
 │   │   ├── cycling2.png
 │   │   ├── cycling3.png
+│   │   ├── Drivers_Championship.jpg
 │   │   ├── euroleague.jpg
 │   │   ├── european_swimming.jpg
 │   │   ├── f1-front.jpg
@@ -724,6 +736,7 @@ Sports_Encyclopedia
 │   │   ├── hockey2.png
 │   │   ├── hockey3.png
 │   │   ├── ibf_world_title.jpg
+│   │   ├── Italian_Grand_Prix_Monza.jpg
 │   │   ├── japan_series.jpg
 │   │   ├── logos
 │   │   │   ├── baseball-back.png
@@ -753,6 +766,7 @@ Sports_Encyclopedia
 │   │   ├── mma1.png
 │   │   ├── mma2.png
 │   │   ├── mma3.png
+│   │   ├── Monaco_Grand_Prix.jpg
 │   │   ├── nba_finals.jpg
 │   │   ├── ncaa_championship.jpg
 │   │   ├── ny_marathon.jpg
@@ -784,6 +798,7 @@ Sports_Encyclopedia
 │   │   ├── UEFA.jpg
 │   │   ├── uefa_champions_league.jpg
 │   │   ├── ufc_championship.jpg
+│   │   ├── user.png
 │   │   ├── us_open.jpg
 │   │   ├── us_open_golf.jpg
 │   │   ├── volleyball-front.jpg
@@ -811,8 +826,18 @@ Sports_Encyclopedia
 │   │   └── settings-loader.js
 │   └── uploads
 │       ├── avatars
+│       │   ├── 69ed14564f70e6.49065533.jpg
+│       │   ├── 69ed28c2d745a0.62755896.jpg
+│       │   ├── 69ed28c7a1a3a6.57944271.jpg
+│       │   ├── 69ed28dad26777.03150857.jpg
 │       ├── chat
+│       │   ├── 69eaa736b1de54.47403297.png
+│       │   ├── 69f84ccf4dfc91.40719137.png
+│       │   ├── 69f84cfee9c2f1.45798333.png
+│       │   ├── 69f84d3f08b780.49110172.png
 │       └── contributions
+│           ├── 69f84d658d7851.03295913.pdf
+│           └── 69f84e1f10caa2.74015603.pdf
 ├── schema.sql
 ├── Sports_Encyclopedia_chen_notation.png
 ├── Sports_Encyclopedia_ERD_crossfoot.png
