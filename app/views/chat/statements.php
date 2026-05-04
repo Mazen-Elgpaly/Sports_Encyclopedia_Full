@@ -1,3 +1,42 @@
+<style>
+    img.emoji {
+    margin: 3px;
+    width: 1.3em;
+    vertical-align: -0.55em;
+}
+.flying-emoji{
+    position:absolute;
+    pointer-events:none;
+    font-size:28px;
+    animation:flyUp 1.2s ease-out forwards;
+    z-index:9999;
+}
+.stmt-meta{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.stmt-reaction-slot{
+    display:flex;
+    align-items:center;
+    gap:.25rem;
+}
+@keyframes flyUp{
+    0%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+    50%{
+        opacity:1;
+        transform:translateY(-60px) scale(1.4);
+    }
+    100%{
+        opacity:0;
+        transform:translateY(-130px) scale(.8);
+    }
+}
+</style>
 <div style="max-width:900px;margin:2rem auto;padding:0 1.5rem;">
 
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;">
@@ -47,7 +86,7 @@
          style="background:#15181b;border:1px solid #283339;border-radius:16px;padding:1.5rem;margin-bottom:1.25rem;">
 
         <!-- Header -->
-        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;">
+            <div class="stmt-header" style="display:flex;align-items:center;gap:.75rem;">
             <?php $avatar = $s['admin_avatar'] ? FileUpload::url($s['admin_avatar']) : null; ?>
             <?php if ($avatar): ?>
                 <img src="<?= htmlspecialchars($avatar) ?>" alt="" style="width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid #fbbf24;">
@@ -63,94 +102,238 @@
             </div>
         </div>
 
-        <!-- Body -->
-        <p style="color:#e8eef0;line-height:1.7;margin-bottom:1rem;white-space:pre-wrap;"><?= htmlspecialchars($s['body']) ?></p>
+   
+        <?php
+$wordLimit = 5; 
+$words     = preg_split('/\s+/', trim($s['body']));
+$preview   = implode(' ', array_slice($words, 0, $wordLimit));
+$hasMore   = count($words) > $wordLimit;
+?>
 
-        <!-- Image -->
+<div class="statement-content">
+
+    <!-- Preview -->
+    <div class="stmt-preview" style= "margin-bottom: 10px;margin-top: 10px;">
+        <p style="color:#e8eef0;line-height:1.7;margin-bottom:.5rem;display: inline;">
+            <?= htmlspecialchars($preview) ?>
+            <?php if ($hasMore): ?>...<?php endif; ?>
+        </p>
+
+        <?php if ($hasMore || $s['image']): ?>
+            <button class="read-more-btn"
+                style="background:none;border:none;color:#0da6f2;cursor:pointer;font-weight:600;padding:0;">
+                Read more
+            </button>
+        <?php endif; ?>
+    </div>
+
+    <!-- Full -->
+    <div class="stmt-full" style="display:none;">
+        <p style="color:#e8eef0;line-height:1.7;margin-block-start: 0;white-space:pre-line;">
+            <?= htmlspecialchars($s['body']) ?>
+        </p>
+
         <?php if ($s['image']): ?>
             <img src="<?= htmlspecialchars(FileUpload::url($s['image'])) ?>" alt="Statement image"
                  style="max-width:100%;border-radius:12px;margin-bottom:1rem;max-height:400px;object-fit:cover;">
         <?php endif; ?>
+    </div>
+
+</div>
 
         <!-- Reactions -->
-        <div style="display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;">
-            <?php
-            $allowed  = ['👍','❤️','🔥','😮','😂','👏'];
-            $reactMap = [];
-            foreach ($s['reactions'] as $r) $reactMap[$r['emoji']] = $r['cnt'];
-            $myEmoji  = $s['my_emoji'];
-            $isAdmin  = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
-            ?>
+<div class="reactions-bar" style="display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;">
 
-            <?php foreach ($allowed as $emoji): ?>
-            <?php $cnt = $reactMap[$emoji] ?? 0; ?>
-            <?php if (!$isAdmin): ?>
-            <button class="react-btn"
-                data-stmt="<?= $s['id'] ?>" data-emoji="<?= $emoji ?>"
-                style="background:<?= ($myEmoji === $emoji) ? 'rgba(13,166,242,.25)' : 'rgba(255,255,255,.04)' ?>;
-                       border:1px solid <?= ($myEmoji === $emoji) ? '#0da6f2' : 'rgba(255,255,255,.08)' ?>;
-                       border-radius:999px;padding:.35rem .75rem;cursor:pointer;font-size:1rem;
-                       color:#fff;display:flex;align-items:center;gap:.35rem;transition:all .2s;">
-                <?= $emoji ?> <?php if ($cnt > 0): ?><span class="cnt"><?= $cnt ?></span><?php endif; ?>
-            </button>
-            <?php else: ?>
+    <?php
+    $allowed  = ['👍','❤️','🔥','😮','😂','👏'];
+    $reactMap = [];
+    foreach ($s['reactions'] as $r) $reactMap[$r['emoji']] = $r['cnt'];
+
+    $myEmoji  = $s['my_emoji'] ?? null;
+    $isAdmin  = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
+    ?>
+
+    <!-- Reaction buttons -->
+    <?php foreach ($allowed as $emoji): ?>
+        <?php $cnt = $reactMap[$emoji] ?? 0; ?>
+
+        <?php if (!$isAdmin): ?>
+        <button
+            class="react-btn"
+            data-stmt="<?= $s['id'] ?>"
+            data-emoji="<?= $emoji ?>"
+            style="
+                background:<?= ($myEmoji === $emoji) ? 'rgba(13,166,242,.25)' : 'rgba(255,255,255,.04)' ?>;
+                border:1px solid <?= ($myEmoji === $emoji) ? '#0da6f2' : 'rgba(255,255,255,.08)' ?>;
+                border-radius:999px;
+                padding:.35rem .75rem;
+                cursor:pointer;
+                font-size:1rem;
+                color:#fff;
+                display:flex;
+                align-items:center;
+                gap:.35rem;
+                transition:all .2s;
+                position:relative;
+                overflow:hidden;
+            "
+        >
+            <span class="emoji"><?= $emoji ?></span>
+
             <?php if ($cnt > 0): ?>
-            <span style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:999px;padding:.35rem .75rem;font-size:1rem;color:#9aa3a6;">
-                <?= $emoji ?> <span><?= $cnt ?></span>
-            </span>
+                <span class="cnt"><?= $cnt ?></span>
             <?php endif; ?>
-            <?php endif; ?>
-            <?php endforeach; ?>
+        </button>
+        <?php endif; ?>
 
-            <?php if (!$isAdmin && $myEmoji): ?>
-            <span style="font-size:.8rem;color:#9aa3a6;margin-left:.25rem;">You reacted with <?= $myEmoji ?></span>
-            <?php endif; ?>
-        </div>
+    <?php endforeach; ?>
+
+
+    <!-- FIXED PLACEHOLDER (important part) -->
+    <span
+        class="my-reaction"
+        data-id="<?= $s['id'] ?>"
+        style="
+            font-size:.85rem;
+            color:#9aa3a6;
+            margin-left:.5rem;
+            display:<?= $myEmoji ? 'inline-block' : 'none' ?>;
+        "
+    >
+        You reacted with <span class="my-emoji"><?= htmlspecialchars($myEmoji ?? '') ?></span>
+    </span>
+
+</div>
     </div>
     <?php endforeach; ?>
 </div>
 
 <?php if (!$isAdmin): ?>
 <script>
+/* =========================
+   TWEMOJI SAFE WRAPPER
+========================= */
+function parseTwemoji(scope) {
+    if (!scope) return;
+    twemoji.parse(scope, {
+        folder: 'svg',
+        ext: '.svg'
+    });
+}
+
+/* =========================
+   INIT EVENTS
+========================= */
 document.querySelectorAll('.react-btn').forEach(btn => {
+
     btn.addEventListener('click', async () => {
+
         const stmtId = btn.dataset.stmt;
         const emoji  = btn.dataset.emoji;
+        const card   = btn.closest('.stmt-card');
 
-        const res = await fetch('<?= BASE_URL ?>/statements/react', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ statement_id: parseInt(stmtId), emoji })
-        });
+        if (btn.disabled) return;
+        btn.disabled = true;
 
-        if (!res.ok) return;
-        const data = await res.json();
+        try {
+            const res = await fetch('<?= BASE_URL ?>/statements/react', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    statement_id: parseInt(stmtId),
+                    emoji
+                })
+            });
 
-        // Update reaction buttons in this card
-        const card = btn.closest('.stmt-card');
-        card.querySelectorAll('.react-btn').forEach(b => {
-            const e = b.dataset.emoji;
-            const cnt = (data.reactions.find(r => r.emoji === e) || {}).cnt || 0;
-            const isMe = data.my_emoji === e;
+            if (!res.ok) return;
 
-            b.style.background = isMe ? 'rgba(13,166,242,.25)' : 'rgba(255,255,255,.04)';
-            b.style.borderColor = isMe ? '#0da6f2' : 'rgba(255,255,255,.08)';
+            const data = await res.json();
 
-            const cntEl = b.querySelector('.cnt');
-            if (cnt > 0) {
-                if (cntEl) cntEl.textContent = cnt;
-                else b.innerHTML = e + ' <span class="cnt">' + cnt + '</span>';
+            /* =========================
+               1) UPDATE BUTTONS (SAFE DOM)
+            ========================= */
+            card.querySelectorAll('.react-btn').forEach(b => {
+
+                const e   = b.dataset.emoji;
+                const cnt = (data.reactions.find(r => r.emoji === e) || {}).cnt || 0;
+                const isMe = data.my_emoji === e;
+
+                const emojiSpan = b.querySelector('.emoji');
+                const cntSpan   = b.querySelector('.cnt');
+
+                if (emojiSpan) emojiSpan.textContent = e;
+
+                if (cntSpan) {
+                    if (cnt > 0) cntSpan.textContent = cnt;
+                    else cntSpan.remove();
+                } else if (cnt > 0) {
+                    const span = document.createElement('span');
+                    span.className = 'cnt';
+                    span.textContent = cnt;
+                    b.appendChild(document.createTextNode(' '));
+                    b.appendChild(span);
+                }
+
+                b.style.background = isMe
+                    ? 'rgba(13,166,242,.25)'
+                    : 'rgba(255,255,255,.04)';
+
+                b.style.borderColor = isMe
+                    ? '#0da6f2'
+                    : 'rgba(255,255,255,.08)';
+            });
+
+            /* =========================
+               2) YOU REACTED WITH (FIXED)
+            ========================= */
+            const box = card.querySelector('.my-reaction');
+            const emojiBox = card.querySelector('.my-emoji');
+
+            if (data.my_emoji) {
+                box.style.display = 'inline-flex';
+                emojiBox.textContent = data.my_emoji;
             } else {
-                if (cntEl) cntEl.remove();
-                else b.textContent = e;
+                box.style.display = 'none';
+                emojiBox.textContent = '';
             }
-        });
+
+            /* =========================
+               3) FLY EMOJI ANIMATION
+            ========================= */
+            const rect = btn.getBoundingClientRect();
+
+            const flying = document.createElement('div');
+            flying.className = 'flying-emoji';
+            flying.textContent = emoji;
+
+            flying.style.left = (rect.left + rect.width / 2) + 'px';
+            flying.style.top  = (rect.top + window.scrollY) + 'px';
+
+            document.body.appendChild(flying);
+
+            setTimeout(() => flying.remove(), 1200);
+
+            /* =========================
+               4) SAFE TWEMOJI RE-PARSE
+               (ONLY CURRENT CARD)
+            ========================= */
+            requestAnimationFrame(() => {
+                parseTwemoji(card);
+            });
+
+        } finally {
+            btn.disabled = false;
+        }
     });
+
 });
 </script>
 <?php endif; ?>
 
 <script>
+/* =========================
+   IMAGE PREVIEW
+========================= */
 function previewImg(input) {
     const preview = document.getElementById('imgPreview');
     if (input.files && input.files[0]) {
@@ -158,4 +341,25 @@ function previewImg(input) {
         preview.style.display = 'block';
     }
 }
+
+/* =========================
+   READ MORE HANDLER
+========================= */
+document.querySelectorAll('.read-more-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+        const container = btn.closest('.statement-content');
+
+        container.querySelector('.stmt-preview').style.display = 'none';
+        container.querySelector('.stmt-full').style.display = 'block';
+    });
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script>
+
+<script>
+/* =========================
+   INITIAL PARSE (FULL PAGE)
+========================= */
+parseTwemoji(document.body);
 </script>

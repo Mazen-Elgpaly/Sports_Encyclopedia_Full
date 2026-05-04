@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2026 at 06:10 PM
+-- Generation Time: May 04, 2026 at 12:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -4849,7 +4849,11 @@ CREATE TABLE `statements` (
 --
 
 INSERT INTO `statements` (`id`, `admin_id`, `body`, `image`, `created_at`) VALUES
-(1, 1, 'siiiiiiiiiiiii', 'chat/69eaa736b1de54.47403297.png', '2026-04-23 23:11:50');
+(2, 1, '🚨 Hansi Flick on managing Lamine\r\ninjury: \"We are in communication with\r\nSpain staff\".\r\n\"It\'s also important that Lamine is in\r\ncommunication with the coach, he\'s in\r\ngood condition, and the progress is going\r\npositively. So I think we\'ll see him at the\r\nWorld Cup\".', 'chat/69f84ccf4dfc91.40719137.png', '2026-05-04 07:37:51'),
+(3, 1, '🚨🎙️ Nuno Mendes:\r\n\"We need Cristiano Ronaldo with us in the\r\nWorld Cup, he is our role model and\r\nleader. His mentalityy helps us.\"', 'chat/69f84cfee9c2f1.45798333.png', '2026-05-04 07:38:38'),
+(4, 1, '🚨❌ Mo Salah will return before the end\r\nof the season.. but not against Man United\r\non Sunday, confirms Arne Slot.', 'chat/69f84d3f08b780.49110172.png', '2026-05-04 07:39:43'),
+(5, 1, '🚨 CRISTIANO RONALDO HAS NOW SCORED 970 GOALS', 'chat/69f84d658d7851.03295913.png', '2026-05-04 07:40:21'),
+(6, 1, '🚨970 CAREER GOALS. 🇵🇹\n[■■■■■■■■■■■■□] 97%\nOnly 3% remains until the impossible 1,000.\nWe are witnessing history. 🐐', 'chat/69f84e1f10caa2.74015603.png', '2026-05-04 07:43:27');
 
 -- --------------------------------------------------------
 
@@ -4870,7 +4874,11 @@ CREATE TABLE `statement_reactions` (
 --
 
 INSERT INTO `statement_reactions` (`id`, `statement_id`, `user_id`, `emoji`, `created_at`) VALUES
-(1, 1, 2, '❤️', '2026-04-25 12:51:22');
+(101, 6, 2, '🔥', '2026-05-04 09:42:17'),
+(102, 5, 2, '❤️', '2026-05-04 09:42:22'),
+(104, 4, 2, '👏', '2026-05-04 09:42:36'),
+(105, 3, 2, '🔥', '2026-05-04 09:42:43'),
+(106, 2, 2, '🔥', '2026-05-04 09:42:50');
 
 -- --------------------------------------------------------
 
@@ -4896,7 +4904,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password_hash`, `role`, `avatar`, `remember_token`, `token_expires`, `created_at`) VALUES
 (1, 'Admin', 'admin@sports.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', 'avatars/69f49b6f071182.06615668.jpg', NULL, NULL, '2026-04-19 06:05:19'),
-(2, 'Mazen Mohamed', 'mazen@sports.com', '$2y$10$Lcgw9cna0DiXRB.H8WPF3ue/z5oGbcpF2eGXredBY2i/TeNt7ZH7e', 'user', 'avatars/69efc77e2e9033.62458700.jpg', NULL, NULL, '2026-04-23 23:08:26');
+(2, 'Mazen Mohamed', 'mazen@sports.com', '$2y$10$Lcgw9cna0DiXRB.H8WPF3ue/z5oGbcpF2eGXredBY2i/TeNt7ZH7e', 'user', 'avatars/69efc77e2e9033.62458700.jpg', '0b08002e0e73822f1d1e6dca90964bd2dc034db317796daf99f78546bb16b5a8', '2026-06-03 09:57:39', '2026-04-23 23:08:26');
 
 --
 -- Indexes for dumped tables
@@ -5197,13 +5205,13 @@ ALTER TABLE `sport_stats`
 -- AUTO_INCREMENT for table `statements`
 --
 ALTER TABLE `statements`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `statement_reactions`
 --
 ALTER TABLE `statement_reactions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `users`
