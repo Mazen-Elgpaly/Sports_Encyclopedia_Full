@@ -22,6 +22,92 @@
     align-items:center;
     gap:.25rem;
 }
+.statement-content{
+    position: relative;
+}
+
+/* transition stable */
+.stmt-preview,
+.stmt-full{
+    transition: all .35s ease;
+}
+
+/* default */
+.stmt-full{
+    max-height:0;
+    opacity:0;
+    /* overflow:hidden; */
+    transform: translateY(10px);
+}
+
+/* expanded */
+.stmt-card.expanded .stmt-full{
+    max-height:2000px;
+    opacity:1;
+    transform: translateY(0);
+}
+
+.stmt-card.expanded .stmt-preview{
+    opacity:0;
+    max-height:0;
+    overflow:hidden;
+}
+
+/* image animation */
+.stmt-full img{
+    opacity:0;
+    transform: scale(0.98);
+    transition: all .4s ease;
+}
+
+.stmt-card.expanded .stmt-full img{
+    opacity:1;
+}
+
+/* pinned state */
+.stmt-card.pinned .read-more-toggle{
+    background: rgba(13,166,242,.2);
+    border-color:#0da6f2;
+}
+
+/* button visibility fix */
+.read-more-toggle{
+    opacity:0;
+    transform: translateY(-4px);
+    transition:.2s ease;
+}
+
+.stmt-card:hover .read-more-toggle{
+    opacity:1;
+    transform: translateY(0);
+}
+
+/* pinned override */
+.stmt-card.pinned .read-more-toggle{
+    opacity:1;
+}
+
+.stmt-full img{
+    max-width:100%;
+    border-radius:12px;
+    margin-bottom:1rem;
+    max-height:400px;
+    object-fit:cover;
+
+    transition: transform .3s ease, box-shadow .3s ease;
+    transform-origin: left bottom; /* هنا نقطة التمدد */
+}
+
+/* hover zoom */
+.stmt-full img:hover{
+    transform: scale(2); !important
+    position: relative;
+    z-index: 2000;
+    box-shadow: 0 4px 15px rgba(255,255,255,.9);
+        
+
+}
+
 @keyframes flyUp{
     0%{
         opacity:1;
@@ -100,6 +186,19 @@
                 <span style="background:rgba(245,158,11,.15);color:#fbbf24;font-size:.7rem;padding:.1rem .5rem;border-radius:999px;margin-left:.4rem;">Admin</span>
                 <div style="font-size:.8rem;color:#9aa3a6;"><?= date('M j, Y · g:i A', strtotime($s['created_at'])) ?></div>
             </div>
+                        <button class="read-more-toggle"
+                style="
+                    margin-left:auto;
+                    background:transparent;
+                    border:1px solid rgba(255,255,255,.15);
+                    color:#0da6f2;
+                    padding:.25rem .6rem;
+                    border-radius:8px;
+                    cursor:pointer;
+                    font-size:.75rem;
+                ">
+                Read more
+            </button>
         </div>
 
    
@@ -128,7 +227,7 @@ $hasMore   = count($words) > $wordLimit;
     </div>
 
     <!-- Full -->
-    <div class="stmt-full" style="display:none;">
+    <div class="stmt-full" >
         <p style="color:#e8eef0;line-height:1.7;margin-block-start: 0;white-space:pre-line;">
             <?= htmlspecialchars($s['body']) ?>
         </p>
@@ -342,16 +441,54 @@ function previewImg(input) {
     }
 }
 
-/* =========================
-   READ MORE HANDLER
-========================= */
-document.querySelectorAll('.read-more-btn').forEach(btn => {
-    btn.addEventListener('click', function () {
-        const container = btn.closest('.statement-content');
+document.querySelectorAll('.stmt-card').forEach(card => {
 
-        container.querySelector('.stmt-preview').style.display = 'none';
-        container.querySelector('.stmt-full').style.display = 'block';
+    const btn = card.querySelector('.read-more-toggle');
+
+    let pinned = false;
+    let hoverLock = false;
+
+    const open = () => {
+        card.classList.add('expanded');
+    };
+
+    const close = () => {
+        if (pinned) return;
+        card.classList.remove('expanded');
+    };
+
+    /* =========================
+       HOVER (NO LOOP FIX)
+    ========================= */
+    card.addEventListener('mouseenter', () => {
+        hoverLock = true;
+        open();
     });
+
+    card.addEventListener('mouseleave', () => {
+        hoverLock = false;
+        close();
+    });
+
+    /* =========================
+       PIN BUTTON
+    ========================= */
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        pinned = !pinned;
+
+        if (pinned) {
+            card.classList.add('pinned');
+            open();
+            btn.textContent = "Pinned";
+        } else {
+            card.classList.remove('pinned');
+            btn.textContent = "Read more";
+            close();
+        }
+    });
+
 });
 </script>
 
