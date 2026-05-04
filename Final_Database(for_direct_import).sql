@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2026 at 12:02 PM
+-- Generation Time: May 04, 2026 at 08:39 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -3614,6 +3614,13 @@ CREATE TABLE `contact_messages` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `contact_messages`
+--
+
+INSERT INTO `contact_messages` (`id`, `user_id`, `name`, `email`, `subject`, `message`, `is_read`, `created_at`) VALUES
+(1, 2, 'Mazen Mohamed', 'mazen@sports.com', '6je64w', 'tjsrsjtr', 0, '2026-05-04 16:50:12');
+
 -- --------------------------------------------------------
 
 --
@@ -4071,7 +4078,8 @@ CREATE TABLE `feedback` (
 
 INSERT INTO `feedback` (`id`, `user_id`, `name`, `email`, `message`, `rating`, `created_at`) VALUES
 (1, 1, 'Admin', 'admin@sports.com', 'rkjw6k56wk56', 5, '2026-04-19 15:14:47'),
-(2, 1, 'Admin', 'admin@sports.com', 'htr54j54j54jr54w6w5jj64w6jwsrtj', 5, '2026-04-23 23:17:46');
+(2, 1, 'Admin', 'admin@sports.com', 'htr54j54j54jr54w6w5jj64w6jwsrtj', 5, '2026-04-23 23:17:46'),
+(3, 2, 'Mazen Mohamed', 'mazen@sports.com', 'ssssssssssssss', 5, '2026-05-04 16:51:42');
 
 -- --------------------------------------------------------
 
@@ -4874,9 +4882,9 @@ CREATE TABLE `statement_reactions` (
 --
 
 INSERT INTO `statement_reactions` (`id`, `statement_id`, `user_id`, `emoji`, `created_at`) VALUES
-(101, 6, 2, '🔥', '2026-05-04 09:42:17'),
-(102, 5, 2, '❤️', '2026-05-04 09:42:22'),
-(104, 4, 2, '👏', '2026-05-04 09:42:36'),
+(101, 6, 2, '😮', '2026-05-04 09:42:17'),
+(102, 5, 2, '🔥', '2026-05-04 09:42:22'),
+(104, 4, 2, '😂', '2026-05-04 09:42:36'),
 (105, 3, 2, '🔥', '2026-05-04 09:42:43'),
 (106, 2, 2, '🔥', '2026-05-04 09:42:50');
 
@@ -5121,7 +5129,7 @@ ALTER TABLE `clubs`
 -- AUTO_INCREMENT for table `contact_messages`
 --
 ALTER TABLE `contact_messages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `contributions`
@@ -5163,7 +5171,7 @@ ALTER TABLE `dashboard_top_players`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `records`
