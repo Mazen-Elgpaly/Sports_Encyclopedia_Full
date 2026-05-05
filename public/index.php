@@ -95,9 +95,9 @@ $router->post('/admin/contributions/approve', 'AdminController',   'approveContr
 $router->post('/admin/contributions/reject',  'AdminController',   'rejectContribution');
 
 // ── reset pass  ──────────────────────────────────────────────────────────────────────
-$router->get( '/reset',                  'PagesController',         'reset');
-$router->get('/otp',                  'PagesController',         'otp');
-$router->get( '/resetpass',               'PagesController',         'resetpass');
+$router->get('/reset',                   'PagesController',             'reset');
+$router->get('/otp',                     'PagesController',               'otp');
+$router->get('/resetpass',               'PagesController',         'resetpass');
 
 
 $router->dispatch();
